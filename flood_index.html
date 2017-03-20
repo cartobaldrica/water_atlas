@@ -179,6 +179,12 @@
         			tiled: true, 
         			tilesorigin: [-180, 90]
     			})],
+    		'labels2': [L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png', {
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+					subdomains: 'abcd',
+					minZoom: 6,
+        			maxZoom: 15
+				})],
             'flood_1861': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:1861_floods&maxFeatures=50&outputFormat=application%2Fjson',
             	{fillColor: '#bf4040', fillOpacity: .5, color: '#993333', weight: 1, opacity: 0.5}), legend_1861],
             'heppner': [L.circle([45.3448, -119.5436], {
@@ -234,8 +240,8 @@
             flood_1861: {lat: 44.7251, lng:-123.5893, zoom: 9, layers:['flood_1861', 'flood_1861_cities']},
             vanport: {lat: 45.6025, lng:-122.7163, zoom: 14, layers:['vanport_polygon','vanport_points']},
             flood_1964: {lat: 45.011, lng:-123.810, zoom: 8, layers:['flood_1964']},
-            flood_1996_january: {lat: 45.4245, lng:-123.1004, zoom: 10, layers:['flood_1996_january','labels']},
-            flood_1996_february: {lat: 45.4245, lng:-123.1004, zoom: 10, layers:['flood_1996_february','labels']},
+            flood_1996_january: {lat: 45.4245, lng:-123.1004, zoom: 10, layers:['flood_1996_january','labels2']},
+            flood_1996_february: {lat: 45.4245, lng:-123.1004, zoom: 10, layers:['flood_1996_february','labels2']},
             predictions: {lat: 44.1347254, lng:-122.7411479, zoom: 7,layers:['floods']},
             demographics_portland: {lat: 44.5628, lng:-123.2954, zoom: 11, layers:['flood_demographics2']}
 
