@@ -61,6 +61,11 @@
                 <p>Once contaminant sources are identified, communities can work with land managers to spearhead plans to ensure drinking water quality. Surface and ground water sources are susceptible to different contaminant sources. The OHA mandates certain treatment and filtration requirements for public water providers. However, private well owners are responsible for testing their own water quality.</p>
                 <p>Potential contaminants are sorted into three risk categories, with highest risk sources maintaining the most potential for effect. Even if drinking water providers do identify contaminants, it can be difficult to locate their origin, highlighting the importance of preventative action and strategies.</p>
             </section> 
+            
+            <section data-scene="end">
+				 	<div class= "end-background-img background-img-setting text-responsive"><br>
+                	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>     
+            </section>
         	
         	<div class="glyphicon glyphicon-chevron-down glyphicon-align-center arrow-down"></div>
         </div>
@@ -86,7 +91,7 @@
                 	<p2>Drinking water statistics and information: Oregon DEQ, Oregon Health Authority, Portland Water Bureau</p2>
                 </div>
                 <div class="modal-footer">
-                    <p2>Created with Leaflet.</p>
+                    <p2>Created with Leaflet</p>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -122,9 +127,9 @@
 	var ground_style = {fillColor: '#0066ff', fillOpacity: .8, color: '#b3d1ff', radius: 4, opacity: 0, weight: .1};		
 	var surface_style = {fillColor: '#b3d1ff', fillOpacity: .8, color: '#4d94ff', radius: 1, opacity: 1, weight: 1};
 	
-    var legend_sw = '<i style="background: #b3d1ff; fillOpacity: .8; color:#4d94ff; weight: 1; opacity: 0.8; border:1px solid #4d94ff"></i><b><p style="text-align: center">Public Surface Water Zones</b></p><p style="text-align:left; font-weight:bold">Hover for source</p>';
-    var legend_gw = '<i style="background: #0066ff; fillOpacity: .8; color:#b3d1ff; weight: 1; opacity: 0.8; border:1px solid #b3d1ff"></i><b><p style="text-align: left">Public Groundwater Zones</b></p>';
-    var legend_grid = '<p style="text-align: center; font-weight:bold">Contaminants</p><img src="img/total.png" style="height:10px; margin-top:5px; width:10px; margin-left:1px;"><p style="font-weight:bold">Hover for number</p><br><i style="background: #0066ff; fillOpacity: .8; color:#b3d1ff; weight: 1; opacity: 0.8; border:1px solid #b3d1ff"></i><b><p style="text-align: center">Ground Water Zones</b></p><i style="background: #b3d1ff; fillOpacity: .8; color:#4d94ff; weight: 1; opacity: 0.8; border:1px solid #4d94ff"></i><b><p style="text-align: center">Surface Water Zones</b></p>';
+    var legend_sw = '<i style="background: #b3d1ff; fillOpacity: .8; color:#4d94ff; weight: 1; opacity: 0.8; border:1px solid #4d94ff"></i><b><p style="text-align: left; margin-left: 25px">Surface Source Protection Zone</b></p>';
+    var legend_gw = '<i style="background: #0066ff; fillOpacity: .8; color:#b3d1ff; weight: 1; opacity: 0.8; border:1px solid #b3d1ff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater Source Protection Zone</b></p>';
+    var legend_grid = '<p style="text-align: center; font-weight:bold">Contaminants</p><img src="img/total.png" style="height:10px; margin-top:5px; width:10px; margin-left:1px;"><p style="font-weight:bold">Hover for number</p><br><i style="background: #0066ff; fillOpacity: .8; color:#b3d1ff; weight: 1; opacity: 0.8; border:1px solid #b3d1ff"></i><b><p style="text-align: left;  margin-left: 25px">Groundwater Zones</b></p><i style="background: #b3d1ff; fillOpacity: .8; color:#4d94ff; weight: 1; opacity: 0.8; border:1px solid #4d94ff"></i><b><p style="text-align: left;  margin-left: 25px">Surface Water Zones</b></p>';
 	var legend_contaminants = '<p style="text-align: center">Potential Contaminant Sources</p><img src="img/lowest.png" style="height:10px; width:10px; margin-top:8px; margin-left:1px;"><p style = "margin-top:5px;">Lowest-Risk</p><img src="img/medium.png" style="height:10px; width:10px; margin-top:8px; margin-left:1px;"><p style = "margin-top:5px;">Medium-Risk</p><img src="img/highest.png" style="height:10px; width:10px; margin-top:8px; margin-left:1px;"><p style = "margin-top:5px;">Highest-Risk</p><br><p style="text-align:left; font-weight:bold">Hover for source name</p>';
 		
 //<p style="text-align:left; font-weight:bold">Hover for source</p>'
@@ -193,8 +198,8 @@
             surface: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['surface']},
             ground: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['ground3']},
             contaminant_grid: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['grid1','surface2','ground2']},
-            contaminants: {lat:44.5644, lng:-123.2997, zoom: 13, layers:['contaminants' ]}
-
+            contaminants: {lat:44.5644, lng:-123.2997, zoom: 13, layers:['contaminants' ]},
+            end: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position:'fullpage'}
     };
     
     
