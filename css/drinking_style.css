@@ -57,6 +57,9 @@ h4{
 .overview-background-img {
     background: url(overview2.jpg) no-repeat center center fixed;
 }
+.end-background-img {
+    background: url(end2.jpg) no-repeat center center fixed;
+}
 
 
 .background-img-setting {
@@ -123,7 +126,7 @@ h4{
 
 .legend {
     line-height: 16px;
-    width: 130px;
+    width: 150px;
     color: #333333;
 	font-family: "Verdana", Geneva, sans-serif;
     padding: 6px 8px;

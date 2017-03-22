@@ -57,6 +57,9 @@ h4{
 .overview-background-img {
     background: url(overview.jpg) no-repeat center center fixed;
 }
+.end-background-img {
+    background: url(end.jpg) no-repeat center center fixed;
+}
 
 
 .background-img-setting {
