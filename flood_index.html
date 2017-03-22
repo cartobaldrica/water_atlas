@@ -18,6 +18,8 @@
     
     <link rel="shortcut icon" href="img/oregon.ico" type="image/x-icon">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
     
 	<link href="https://fonts.googleapis.com/css?family=La+Belle+Aurore" rel="stylesheet">	
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata" />
@@ -40,7 +42,7 @@
         <div class="col-sm-6 col-md-4 main">
 
             <section data-scene="overview">
-				 	<div class= "overview-background-img background-img-setting text-responsive"><h4 class="text-center">Flooding</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">The majority of Oregonians live in floodplains. Despite the increased management and regulation of rivers, flooding remains a risk throughout most of the state, particularly west of the Cascades. Understanding the impacts of historic floods and surveying at-risk areas can aid hazard planning and response.</h4></div>
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center">Flooding</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">The majority of Oregonians live in floodplains. Despite the increased management and regulation of rivers, flooding remains a risk throughout most of the state, particularly west of the Cascades. Understanding the impacts of historic floods and surveying at-risk areas can aid hazard planning and response.</h4></div>
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>     
             </section>
             
@@ -109,11 +111,11 @@
             </section>
             
             <section data-scene="end">
-				 	<div class= "end-background-img background-img-setting text-responsive">
+				 	<div class= "end-background-img background-fullscreen-setting text-responsive">
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>     
             </section>
         	
-        	<div class="glyphicon glyphicon-chevron-down glyphicon-align-center arrow-down"></div>
+        	<i class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></i>
         </div>
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
     </div>
@@ -121,6 +123,9 @@
     <i class="fa fa-info-circle social" style="top:10px" data-toggle="modal" data-target="#info-modal"></i>
     
 	<a class="fa fa-facebook-square social2" style="top:28px" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/flood_index.html" target="_blank"></a>
+    
+    <ul class="navbar text-center"></ul>
+
     
     <div class="modal fade" id="info-modal" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -258,6 +263,8 @@
         scenes: scenes,
         layers:layers,
         legend: true,
+        scale:false,
+        navbar: true,
         createMap: function () {
             // create a map in the "map" div, set the view to a given place and zoom
                 var map = L.map('map',{zoomControl:false, scrollWheelZoom:false}).setView([44.1347254, -122.7411479], 7);
