@@ -93,7 +93,9 @@
                 <div class="modal-body">
                     <p2>Cover Photo by Sam Beebe/Ecotrust - retrieved from Wikimedia Commons</p2><br>
                     <p2 style="font-size:20px">Geographic Data</p2><br>
-                    <p2>Surface, Ground and Contaminant Sources: Oregon Department of Environmental Quality - retrieved from Oregon Spatial Data Library</p2><br>
+                    <p2>Surface Source Areas: <a href = "http://spatialdata.oregonexplorer.info/geoportal/catalog/search/resource/details.page?uuid=%7BBD6FD933-A183-4A4C-8314-AF1FC4613CB7%7D" target="_blank">Oregon Department of Environmental Quality/Oregon Spatial Data Library</a></p2><br>
+                	<p2>Groundwater Source Areas: <a href = "http://spatialdata.oregonexplorer.info/geoportal/catalog/search/resource/details.page?uuid=%7B6A1EC8DD-8B68-4483-8CC5-01C57B6A2C27%7D" target="_blank">Oregon Department of Environmental Quality/Oregon Spatial Data Library</a></p2><br>
+                	<p2>Potential Contaminant Sources: <a href = "https://www.oregon.gov/deq/wq/programs/Pages/DWP-Maps.aspx" target="_blank">Oregon Department of Environmental Quality</a></p2><br>
                 	<p2 style="font-size:20px">Text Data</p2><br>
                 	<p2>Drinking water statistics and information: Oregon DEQ, Oregon Health Authority, Portland Water Bureau</p2>
                 </div>
@@ -122,7 +124,7 @@
     		0;
     	}
     
-    
+ //contaminant grid   
     function setTotalDensity(density){
         return density >1000 ? 20 :
         density >500 ? 16:
@@ -130,10 +132,28 @@
         density >50 ? 8:
         5;
     }
+
     
-	var ground_style = {fillColor: '#0066ff', fillOpacity: .8, color: '#b3d1ff', radius: 4, opacity: 0, weight: .1};		
+	var ground_style = {fillColor: '#0066ff', fillOpacity: .8, color: '#b3d1ff', radius: 4, opacity: 0, weight: .1};
+//surface			
 	var surface_style = {fillColor: '#b3d1ff', fillOpacity: .8, color: '#4d94ff', radius: 1, opacity: 1, weight: 1};
-	
+	function highlightSurface(e) {
+    	var layer = e.target;
+    	layer.setStyle({
+        	color: '#ffffff',
+        	fillOpacity: 1,
+    	});
+    	layer.bringToFront();
+    }
+    
+    function resetSurface(e) {
+    	var layer = e.target;	
+    	layer.setStyle({
+           	color: '#4d94ff',
+           	fillOpacity: 0.8,
+    	});
+    }
+//	
     var legend_sw = '<i style="background: #b3d1ff; fillOpacity: .8; color:#4d94ff; weight: 1; opacity: 0.8; border:1px solid #4d94ff"></i><b><p style="text-align: left; margin-left: 25px">Surface Source Protection Zone</b></p>';
     var legend_gw = '<i style="background: #0066ff; fillOpacity: .8; color:#b3d1ff; weight: 1; opacity: 0.8; border:1px solid #b3d1ff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater Source Protection Zone</b></p>';
     var legend_grid = '<p style="text-align: center; font-weight:bold">Contaminants</p><img src="img/total.png" style="height:10px; margin-top:5px; width:10px; margin-left:1px;"><p style="font-weight:bold">Hover for number</p><br><i style="background: #0066ff; fillOpacity: .8; color:#b3d1ff; weight: 1; opacity: 0.8; border:1px solid #b3d1ff"></i><b><p style="text-align: left;  margin-left: 25px">Groundwater Zones</b></p><i style="background: #b3d1ff; fillOpacity: .8; color:#4d94ff; weight: 1; opacity: 0.8; border:1px solid #4d94ff"></i><b><p style="text-align: left;  margin-left: 25px">Surface Water Zones</b></p>';
@@ -169,6 +189,10 @@
             'surface': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:drinking_sw&maxFeatures=500&outputFormat=application%2Fjson',
             	{style:surface_style, onEachFeature: function(feature, featureLayer) {
         			featureLayer.bindTooltip(feature.properties.PWS_NAME, {className: 'label_tooltip'});
+        			featureLayer.on({
+        					mouseover: highlightSurface,
+        					mouseout: resetSurface
+        				})
     			}}
             	), legend_sw],
             'ground': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:drinking_gw&maxFeatures=10000&outputFormat=application%2Fjson',

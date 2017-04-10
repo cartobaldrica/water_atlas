@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
-    <link rel="stylesheet" type="text/css" href="css/flood_style.css">
+    <link rel="stylesheet" type="text/css" href="css/drinking_style.css">
     <link rel="stylesheet" href="css/control-minimap.css" />
     <link rel="stylesheet" href="css/ekko-lightbox.css"/>        
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -42,14 +42,14 @@
         <div class="col-sm-6 col-md-4 main">
 
             <section data-scene="overview">
-				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center">Water Use</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">Approximately a quarter of Oregonians live in floodplains. Despite the increased management and regulation of rivers, flooding remains a risk throughout most of the state, particularly west of the Cascades. Understanding the impacts of historic floods and surveying at-risk areas can aid hazard planning and response.</h4></div>
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center">Water Use</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">In Oregon, where water is largely abundant, use of water can be taken for granted. The Oregon Water Resources Department maintains a database of water rights permits. Permits are split into thirteen usage categories, which outline the specific applications designated in the permits. Irrigation is the largest category, comprising a vast majority of permits, but the extent of which varies by region. Water type is also defined: groundwater, surface water or stored water. Studying water use highlights the intersection between water use and the economy.</h4></div>
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>     
-            </section>
-            
-             <section data-scene="water_use">
-                <h3>Water Use</h3>
-                <p></p>
-			</section>           
+            </section>     
+			
+			<section data-scene="counties">
+                <h3>Total Water Use</h3>
+                <p>Use of water for the extraction, grading or processing of minerals or aggregates, as well as the use of water for construction and operations at mining sites.</p>
+			</section>
 			
 			<section data-scene="mining">
                 <h3>Mining</h3>
@@ -137,16 +137,9 @@
                 </div>
                 <div class="modal-body">
                     <p2 style="font-size:20px">Geographic Data</p2><br>
-                    <p2>1861, 1964, 1996 Flood Extent and Insurance Zones: FEMA - retrieved from Oregon Spatial Data Library</p2><br>
-                	<p2>Vanport: Oregon Historical Society</p2><br>
-                	<p2>1996 Satellite Imagery: Landsat Image Archive</p2><br>
-                	<p2>Demographics: U.S Census Bureau</p2><br>
+                	<p2>Oregon Water Rights: <a href = "https://www.oregon.gov/owrd/Pages/maps/index.aspx" target="_blank">Oregon Water Resources Department</a></p2><br>
                 	<p2 style="font-size:20px">Text Data</p2><br>
-                	<p2>1861 Flood: Oregon Historical Quarterly</p2><br>
-                	<p2>Vanport Flood: Oregon Historical Society, Smithsonian</p2><br>
-                	<p2>1964 Flood: The Oregonian</p2><br>
-                	<p2>1996 Flood: Oregonian</p2><br>
-                	<p2>Flood Insurance and Demographics: FEMA, Oregon Risk MAP</p2><br>
+                	<p2>Oregon Water Resources Department</p2><br>
                 </div>
                 <div class="modal-footer">
                     <p2>Created with Leaflet</p>
@@ -160,6 +153,44 @@
 
 
 <script type="text/javascript">
+    
+    function setCountyColor(density){
+        return density > 450 ? '#f8000c' :
+        density > 300 ? '#ff6343':
+        density > 150 ? '#ffa458':
+        density > 50 ? '#ffd58d':
+        '#feffcd';
+    }
+    
+    function countyStyle(feature) {
+        return {
+           fillColor: setCountyColor(feature.properties.total), 
+           fillOpacity: .8, 
+           color: '#ffffff', 
+           radius: 4, 
+           opacity: .8, 
+           weight: 1
+        };
+    }
+    
+    function highlightCounty(e) {
+    	var layer = e.target;
+    	
+    	layer.setStyle({
+        	fillOpacity: 1,
+        	weight: 2
+    	});
+    	layer.bringToFront();
+    }
+    
+    function resetCounty(e) {
+    	var layer = e.target;
+    	
+    	layer.setStyle({
+           	fillOpacity: 0.8,
+        	weight: 1
+    	});
+    }
     
     var legend_mining = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
 	var legend_domestic = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
@@ -299,6 +330,7 @@
 
     var scenes = {
             overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position: 'fullpage'},
+            counties: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['mining']},
             mining: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['mining']},
             domestic: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['domestic']},
             agriculture: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['agriculture']},
@@ -347,7 +379,7 @@
     			}).addTo(map);
     	*/
     	
-    			var CartoDB_Positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    			var CartoDB_Positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 					subdomains: 'abcd',
 					minZoom: 6,
@@ -356,7 +388,7 @@
     			
     	
  				
- 				var mini = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+ 				var mini = new L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 					subdomains: 'abcd',
 					maxZoom: 8,
