@@ -5,25 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <meta property="og:title" content="Oregon Flooding" />
-    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/flood_index.html" />
-    <meta property="og:description" content="Major historical Oregon floods and explorations of flood vulnerability and risk." />
+    <meta property="og:title" content="Oregon Drinking Water" />
+    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/drinking_index.html" />
+    <meta property="og:description" content="Explore Oregon's drinking water." />
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
-    <link rel="stylesheet" type="text/css" href="css/drinking_style.css">
-    <link rel="stylesheet" href="css/control-minimap.css" />
+    <link rel="stylesheet" type="text/css" href="css/water_use_style.css">
+    <link rel="stylesheet" href="css/control-minimap2.css" />
     <link rel="stylesheet" href="css/ekko-lightbox.css"/>        
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <link rel="shortcut icon" href="img/oregon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
-    
-	<link href="https://fonts.googleapis.com/css?family=La+Belle+Aurore" rel="stylesheet">	
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata" />
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	<link rel="shortcut icon" href="img/oregon.ico" type="image/x-icon">
+	
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
@@ -40,9 +36,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 col-md-4 main">
-
+        
             <section data-scene="overview">
-				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center">Water Use</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">In Oregon, where water is largely abundant, use of water can be taken for granted. The Oregon Water Resources Department maintains a database of water rights permits. Permits are split into thirteen usage categories, which outline the specific applications designated in the permits. Irrigation is the largest category, comprising a vast majority of permits, but the extent of which varies by region. Water type is also defined: groundwater, surface water or stored water. Studying water use highlights the intersection between water use and the economy.</h4></div>
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center">Water Use</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">Water use in Oregon is split into thirteen usage categories by the Oregon Water Resources Department. Each category outlines specific applications designated in the permits. Irrigation is the largest category, comprising a vast majority of permits, but the extent of which varies by region. Water type is also defined: groundwater, surface water or stored water.</h4></div>
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>     
             </section>     
 			
@@ -116,14 +112,20 @@
                 <p>Use of water for maintaining wild species and habitats. These rights are typically maintained in wildlife preserves and parks.</p>
 			</section>
         	
+        	 <section data-scene="end">
+				 	<div class= "end-background-img background-fullscreen-setting text-responsive"><br>
+                	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>     
+            </section>
+        	
         	<i class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></i>
+
         </div>
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
     </div>
     
     <i class="fa fa-info-circle social" style="top:10px" data-toggle="modal" data-target="#info-modal"></i>
     
-	<a class="fa fa-facebook-square social2" style="top:28px" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/flood_index.html" target="_blank"></a>
+	<a class="fa fa-facebook-square social2" style="top:28px" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/drinking_index.html" target="_blank"></a>
     
     <ul class="navbar text-center"></ul>
 
@@ -136,10 +138,13 @@
                     <h2 class="modal-title">About</h2>
                 </div>
                 <div class="modal-body">
+                    <p2>Cover Photo by Sam Beebe/Ecotrust - retrieved from Wikimedia Commons</p2><br>
                     <p2 style="font-size:20px">Geographic Data</p2><br>
-                	<p2>Oregon Water Rights: <a href = "https://www.oregon.gov/owrd/Pages/maps/index.aspx" target="_blank">Oregon Water Resources Department</a></p2><br>
+                    <p2>Surface Source Areas: <a href = "http://spatialdata.oregonexplorer.info/geoportal/catalog/search/resource/details.page?uuid=%7BBD6FD933-A183-4A4C-8314-AF1FC4613CB7%7D" target="_blank">Oregon Department of Environmental Quality/Oregon Spatial Data Library</a></p2><br>
+                	<p2>Groundwater Source Areas: <a href = "http://spatialdata.oregonexplorer.info/geoportal/catalog/search/resource/details.page?uuid=%7B6A1EC8DD-8B68-4483-8CC5-01C57B6A2C27%7D" target="_blank">Oregon Department of Environmental Quality/Oregon Spatial Data Library</a></p2><br>
+                	<p2>Potential Contaminant Sources: <a href = "https://www.oregon.gov/deq/wq/programs/Pages/DWP-Maps.aspx" target="_blank">Oregon Department of Environmental Quality</a></p2><br>
                 	<p2 style="font-size:20px">Text Data</p2><br>
-                	<p2>Oregon Water Resources Department</p2><br>
+                	<p2>Drinking water statistics and information: Oregon DEQ, Oregon Health Authority, Portland Water Bureau</p2>
                 </div>
                 <div class="modal-footer">
                     <p2>Created with Leaflet</p>
@@ -153,46 +158,11 @@
 
 
 <script type="text/javascript">
+
+          
     
-    function setCountyColor(density){
-        return density > 450 ? '#f8000c' :
-        density > 300 ? '#ff6343':
-        density > 150 ? '#ffa458':
-        density > 50 ? '#ffd58d':
-        '#feffcd';
-    }
-    
-    function countyStyle(feature) {
-        return {
-           fillColor: setCountyColor(feature.properties.total), 
-           fillOpacity: .8, 
-           color: '#ffffff', 
-           radius: 4, 
-           opacity: .8, 
-           weight: 1
-        };
-    }
-    
-    function highlightCounty(e) {
-    	var layer = e.target;
-    	
-    	layer.setStyle({
-        	fillOpacity: 1,
-        	weight: 2
-    	});
-    	layer.bringToFront();
-    }
-    
-    function resetCounty(e) {
-    	var layer = e.target;
-    	
-    	layer.setStyle({
-           	fillOpacity: 0.8,
-        	weight: 1
-    	});
-    }
-    
-    var legend_mining = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+//	
+  	var legend_mining = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
 	var legend_domestic = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
 	var legend_agriculture = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
    	var legend_irrigation = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
@@ -204,10 +174,11 @@
    	var legend_municipal = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
    	var legend_instream = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
    	var legend_miscellaneous = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_wildlife = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';   	
-   	
+   	var legend_wildlife = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';   			
+//<p style="text-align:left; font-weight:bold">Hover for source</p>'
+
     var layers = {  
-          'mining' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+             'mining' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_mining',
               tiled: true,
               format: 'image/png',
@@ -324,18 +295,17 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_wildlife]
-              
-           
+    		
     };
 
     var scenes = {
             overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position: 'fullpage'},
-            counties: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['mining']},
+            counties: {lat: 44.1347254, lng:-122.7411479, zoom: 7},
             mining: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['mining']},
             domestic: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['domestic']},
             agriculture: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['agriculture']},
             irrigation: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['irrigation']},
-            commerical: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['commerical']},
+            commercial: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['commercial']},
             recreation: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['recreation']},
             power: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['power']},
             fish: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['fish']},
@@ -343,7 +313,8 @@
             municipal: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['municipal']},
             instream: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['instream']},
             miscellaneous: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['miscellaneous']},
-            wildlife: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['wildlife']}       
+            wildlife: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['wildlife']},
+            end: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position:'fullpage'}      
     };
     
     
@@ -356,20 +327,19 @@
         navbar: true,
         createMap: function () {
             // create a map in the "map" div, set the view to a given place and zoom
-                var map = L.map('map',{zoomControl:false, scrollWheelZoom:false}).setView([44.1347254, -122.7411479], 7);
+                var map = L.map('map',{zoomControl:false,  scrollWheelZoom:false}).setView([44.1347254, -122.7411479], 7);
             // add an basemap, which can be either OSM, mapbox, tilelayer, wmslayer or those designed by yourself.
-          /* L.tileLayer.wms("http://mapio.us/geoserver/baldricg_basemap/wms", {
-        			layers: 'baldricg_basemap:basemap_light',
+           		/*L.tileLayer.wms("http://localhost:8080/geoserver/basemap/wms", {
+        			layers: 'basemap:basemap_dark',
        				format: 'image/png',
        				minZoom: 6,
-       				transparent: true,
         			maxZoom: 15,
-        			
+        			transparent: true,
         		attribution: "Created by Gareth Baldrica-Franklin"
     			}).addTo(map);
     			
-    			L.tileLayer.wms("http://mapio.us/geoserver/baldricg_basemap/wms", {
-        			layers: 'baldricg_basemap:basemap_light_labels',
+    			L.tileLayer.wms("http://localhost:8080/geoserver/basemap/wms", {
+        			layers: 'basemap:basemap_dark_labels',
         			format: 'image/png',
         			minZoom: 6,
         			maxZoom: 15,
@@ -377,33 +347,28 @@
         			tiled: true, 
         			tilesorigin: [-180, 90]
     			}).addTo(map);
-    	*/
-    	
-    			var CartoDB_Positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+    			*/
+    			
+    			var CartoDB_DarkMatterNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 					subdomains: 'abcd',
-					minZoom: 6,
-        			maxZoom: 15
+					maxZoom: 15,
+					minZoom: 6
 				}).addTo(map);
-    			
-    	
  				
  				var mini = new L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 					subdomains: 'abcd',
 					maxZoom: 8,
-					minZoom:5
+					minZoom: 5
 				});
 				
 				var miniMap = new L.Control.MiniMap(mini, { toggleDisplay: false});
-				
-				miniMap.addTo(map);
-
-				
-				new L.Control.Zoom({ position: 'bottomright'}).addTo(map);
  				
+				miniMap.addTo(map);
 			
-				
+					new L.Control.Zoom({ position: 'bottomright'}).addTo(map);
+
 				/*if (scene == 'portland'){
 				miniMap;
 				}*/
