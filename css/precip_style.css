@@ -109,11 +109,11 @@ h4{
     -moz-opacity:1;
     -khtml-opacity: 1;
 }
-.overview-background-img2 {
-    background: url(overview.jpg) no-repeat center center fixed;
+.overview-background-img {
+    background: url(overview_precip.jpg) no-repeat center center fixed;
 }
 .end-background-img {
-    background: url(end.jpg) no-repeat center center fixed;
+    background: url(end_precip.jpg) no-repeat center center fixed;
 }
 
 
