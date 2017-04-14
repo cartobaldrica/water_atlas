@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Oregon Flooding</title>
+    <title>Flooding</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -172,7 +172,7 @@
 
 
     var layers = {  
-          'floods' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'floods' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:flood_risk_zones',
               tiled: true,
               format: 'image/png',
@@ -181,7 +181,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_zones],
-           'labels': [L.tileLayer.wms("http://mapio.us/geoserver/baldricg_basemap/wms", {
+           'labels': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_basemap/wms", {
         			layers: 'baldricg_basemap:basemap_dark_labels',
         			format: 'image/png',
         			minZoom: 6,
@@ -196,28 +196,28 @@
 					minZoom: 6,
         			maxZoom: 15
 				})],
-            'flood_1861': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:1861_floods&maxFeatures=50&outputFormat=application%2Fjson',
+            'flood_1861': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:1861_floods&maxFeatures=50&outputFormat=application%2Fjson',
             	{fillColor: '#bf4040', fillOpacity: .5, color: '#993333', weight: 1, opacity: 0.5}), legend_1861],
             'heppner': [L.circle([45.3448, -119.5436], {
     					opacity: 0,
 					}).bindTooltip('Willow Creek <br> Reservoir', {permanent: true, className: 'label_tooltip',  offset: L.point({x: 80, y: -10})})
     			],
-            'vanport_polygon': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:vanport_polygons&maxFeatures=50&outputFormat=application%2Fjson',
+            'vanport_polygon': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:vanport_polygons&maxFeatures=50&outputFormat=application%2Fjson',
             	{fillColor: '#862d2d', fillOpacity: .5, color: '#bf4040', radius: 4, opacity: 0.5, weight:2}), legend_vanport],
-            'vanport_points': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:vanport_points&maxFeatures=50&outputFormat=application%2Fjson', 
+            'vanport_points': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:vanport_points&maxFeatures=50&outputFormat=application%2Fjson', 
             	{pointToLayer: function (feature, latlng) {
     					return L.circleMarker(latlng, vanportStyle).bindTooltip('Embankment Failure', {permanent: true, className: 'label_tooltip',  offset: L.point({x: 6, y: -8})}); map.dragging.enable();}
     			})],
-    		'flood_1964': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:1964_flood&maxFeatures=1000&outputFormat=application%2Fjson',
+    		'flood_1964': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:1964_flood&maxFeatures=1000&outputFormat=application%2Fjson',
             	{fillColor: '#bf4040', fillOpacity: .5, color: '#993333', radius: 4, opacity: 0}), legend_1964],
-            'flood_1861_cities': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:flooded_1861_cities&maxFeatures=10&outputFormat=application%2Fjson', 
+            'flood_1861_cities': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:flooded_1861_cities&maxFeatures=10&outputFormat=application%2Fjson', 
             		{pointToLayer: function (feature, latlng) {
     					return L.circleMarker(latlng, vanportStyle).bindTooltip(feature.properties.Name, {permanent: true, className: 'label_tooltip',  offset: L.point({x: 6, y: -8})}); map.dragging.enable();
     				}
     			})],	
-    		'zones': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:flood_risk_zones&maxFeatures=10000&outputFormat=application%2Fjson',
+    		'zones': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:flood_risk_zones&maxFeatures=10000&outputFormat=application%2Fjson',
             	{fillColor: '#bf4040', fillOpacity: .5, color: '#bf4040', radius: 4, opacity: 0, weight:2}), legend_zones],
-            'flood_1996_january' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms',{
+            'flood_1996_january' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms',{
               	layers: 'baldricg_atlas:flood_1996_january',
               	tiled: true,
               	format: 'image/png',
@@ -226,7 +226,7 @@
               	minZoom: 6,
               	continuousWorld: true
               	})],
-            'flood_1996_february' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms',{
+            'flood_1996_february' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms',{
               	layers: 'baldricg_atlas:flood_1996_february',
               	tiled: true,
               	format: 'image/png',
@@ -235,7 +235,7 @@
               	minZoom: 6,
               	continuousWorld: true
               })],
-              'flood_demographics2' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms',{
+              'flood_demographics2' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms',{
               	layers: 'baldricg_atlas:flood_demographics',
               	tiled: true,
               	format: 'image/png',
@@ -247,15 +247,15 @@
     };
 
     var scenes = {
-            overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position: 'fullpage'},
-            flood_1861: {lat: 44.7251, lng:-123.5893, zoom: 9, layers:['flood_1861', 'flood_1861_cities']},
-            vanport: {lat: 45.6025, lng:-122.7163, zoom: 14, layers:['vanport_polygon','vanport_points']},
-            flood_1964: {lat: 45.011, lng:-123.810, zoom: 8, layers:['flood_1964']},
-            flood_1996_january: {lat: 45.4245, lng:-123.1004, zoom: 10, layers:['flood_1996_january','labels2']},
-            flood_1996_february: {lat: 45.4245, lng:-123.1004, zoom: 10, layers:['flood_1996_february','labels2']},
-            predictions: {lat: 44.1347254, lng:-122.7411479, zoom: 7,layers:['floods']},
-            demographics_portland: {lat: 44.5628, lng:-123.2954, zoom: 11, layers:['flood_demographics2']}, 
-			end: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position: 'fullpage'}
+            overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position: 'fullpage', name: 'Home'},
+            flood_1861: {lat: 44.7251, lng:-123.5893, zoom: 9, layers:['flood_1861', 'flood_1861_cities'], name: '1861'},
+            vanport: {lat: 45.6025, lng:-122.7163, zoom: 14, layers:['vanport_polygon','vanport_points'], name: 'Vanport'},
+            flood_1964: {lat: 45.011, lng:-123.810, zoom: 8, layers:['flood_1964'], name: '1964'},
+            flood_1996_january: {lat: 45.4245, lng:-123.1004, zoom: 10, layers:['flood_1996_january','labels2'], name: 'Pre-1996'},
+            flood_1996_february: {lat: 45.4245, lng:-123.1004, zoom: 10, layers:['flood_1996_february','labels2'], name: '1996'},
+            predictions: {lat: 44.1347254, lng:-122.7411479, zoom: 7,layers:['floods'], name: 'Flood Risk'},
+            demographics_portland: {lat: 44.5628, lng:-123.2954, zoom: 11, layers:['flood_demographics2'], name: 'Demographics'}, 
+			end: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position: 'fullpage', name: 'End'}
     };
     
     
@@ -270,7 +270,7 @@
             // create a map in the "map" div, set the view to a given place and zoom
                 var map = L.map('map',{zoomControl:false, scrollWheelZoom:false}).setView([44.1347254, -122.7411479], 7);
             // add an basemap, which can be either OSM, mapbox, tilelayer, wmslayer or those designed by yourself.
-          /* L.tileLayer.wms("http://mapio.us/geoserver/baldricg_basemap/wms", {
+          /* L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_basemap/wms", {
         			layers: 'baldricg_basemap:basemap_light',
        				format: 'image/png',
        				minZoom: 6,
@@ -280,7 +280,7 @@
         		attribution: "Created by Gareth Baldrica-Franklin"
     			}).addTo(map);
     			
-    			L.tileLayer.wms("http://mapio.us/geoserver/baldricg_basemap/wms", {
+    			L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_basemap/wms", {
         			layers: 'baldricg_basemap:basemap_light_labels',
         			format: 'image/png',
         			minZoom: 6,

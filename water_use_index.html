@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <meta property="og:title" content="Oregon Drinking Water" />
-    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/drinking_index.html" />
+    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" />
     <meta property="og:description" content="Explore Oregon's drinking water." />
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -44,7 +44,7 @@
 			
 			<section data-scene="counties">
                 <h3>Total Water Use</h3>
-                <p>Use of water for the extraction, grading or processing of minerals or aggregates, as well as the use of water for construction and operations at mining sites.</p>
+                <p>Total water used by county per day based on 2010 USGS estimates. Counties with the highest levels of water use per day are typically areas where widespread irrigation is necessary. The daily average doesn't reflect seasonal variations in the water use schedule, which would be especially observed in heavily irrigated areas.</p>
 			</section>
 			
 			<section data-scene="mining">
@@ -79,12 +79,12 @@
 			
 			<section data-scene="power">
                 <h3>Power</h3>
-                <p>Use of water to produce electricity or mechanical power. In Oregon, this is primarily for hydroelectric uses.</p>
+                <p>Use of water to produce electricity or mechanical power. In Oregon, this is primarily for the operation of hydraulic rams or water wheels, which are used to generate hydroelectricity.</p>
 			</section>
 			
 			<section data-scene="fish">
                 <h3>Fish</h3>
-                <p>Water used for aquaculture or the protection of fish habitats.</p>
+                <p>Water used for aquaculture or the protection of fish habitats. Fish water rights are typically used in conjunction with instream rights.</p>
 			</section>
 			
 			<section data-scene="livestock">
@@ -125,7 +125,7 @@
     
     <i class="fa fa-info-circle social" style="top:10px" data-toggle="modal" data-target="#info-modal"></i>
     
-	<a class="fa fa-facebook-square social2" style="top:28px" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/drinking_index.html" target="_blank"></a>
+	<a class="fa fa-facebook-square social2" style="top:28px" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" target="_blank"></a>
     
     <ul class="navbar text-center"></ul>
 
@@ -138,7 +138,8 @@
                     <h2 class="modal-title">About</h2>
                 </div>
                 <div class="modal-body">
-                    <p2>Cover Photo by Sam Beebe/Ecotrust - retrieved from Wikimedia Commons</p2><br>
+                    <p2>Cover photo by Sam Beebe/Ecotrust - retrieved from Wikimedia Commons</p2><br>                    
+                    <p2>End photo retrieved from Wikimedia Commons</p2><br>
                     <p2 style="font-size:20px">Geographic Data</p2><br>
                     <p2>Surface Source Areas: <a href = "http://spatialdata.oregonexplorer.info/geoportal/catalog/search/resource/details.page?uuid=%7BBD6FD933-A183-4A4C-8314-AF1FC4613CB7%7D" target="_blank">Oregon Department of Environmental Quality/Oregon Spatial Data Library</a></p2><br>
                 	<p2>Groundwater Source Areas: <a href = "http://spatialdata.oregonexplorer.info/geoportal/catalog/search/resource/details.page?uuid=%7B6A1EC8DD-8B68-4483-8CC5-01C57B6A2C27%7D" target="_blank">Oregon Department of Environmental Quality/Oregon Spatial Data Library</a></p2><br>
@@ -159,26 +160,73 @@
 
 <script type="text/javascript">
 
-          
+	function setCountyColor(density){
+        return density > 500 ? '#f8000c' :
+        density > 300 ? '#ff6343':
+        density > 200 ? '#ffa458':
+        density > 100 ? '#ffd58d':
+        '#feffcd';
+    }
+    
+    function countyStyle(feature) {
+        return {
+           fillColor: setCountyColor(feature.properties.total_use), 
+           fillOpacity: .8, 
+           color: '#ffffff', 
+           radius: 4, 
+           opacity: .8, 
+           weight: 1
+        };
+    }
+    
+    function highlightCounty(e) {
+    	var layer = e.target;
+    	
+    	layer.setStyle({
+        	fillOpacity: 1,
+        	weight: 2
+    	});
+    	layer.bringToFront();
+    }
+    
+    function resetCounty(e) {
+    	var layer = e.target;
+    	
+    	layer.setStyle({
+           	fillOpacity: 0.8,
+        	weight: 1
+    	});
+    }
     
 //	
-  	var legend_mining = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-	var legend_domestic = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-	var legend_agriculture = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_irrigation = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_commercial = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_recreation = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_power = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_fish = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_livestock = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_municipal = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_instream = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_miscellaneous = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
-   	var legend_wildlife = '<i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';   			
+  	var legend_mining = '<i style="background: #d9a7ff; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #d9a7ff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #8215ff; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #8215ff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+	var legend_domestic = '<i style="background: #007116; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #007116"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #4bf280; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #4bf280"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+	var legend_agriculture = '<i style="background: #fffb74; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffb74"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #909a00; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #909a00"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_irrigation = '<i style="background: #da4100; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #da4100"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #fcbda2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fcbda2"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_commercial = '<i style="background: #abc6ff; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #abc6ff"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #1962ff; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #1962ff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_recreation = '<i style="background: #b0d6a5; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #b0d6a5"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #5d8a5a; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #5d8a5a"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_power = '<i style="background: #665c00; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #665c00"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #e3daae; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #e3daae"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_fish = '<i style="background: #379168; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #379168"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #b5e2cf; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #b5e2cf"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_livestock = '<i style="background: #cdc7b1; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #cdc7b1"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #5d5739; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #5d5739"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_municipal = '<i style="background: #f9a3eb; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #f9a3eb"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #bc38a8; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #bc38a8"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_instream = '<i style="background: #02007d; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #02007d"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p>'
+   	var legend_miscellaneous = '<i style="background: #ffd98b; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #ffd98b"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #fca800; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fca800"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';
+   	var legend_wildlife = '<i style="background: #b6ff82; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #b6ff82"></i><b><p style="text-align: left; margin-left: 25px">Surface Water</b></p><i style="background: #639900; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #639900"></i><b><p style="text-align: left; margin-left: 25px">Groundwater</b></p><i style="background: #a2a2a2; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">Stored Water</b></p>';   			
+	var legend_county ='<p style ="font-weight: bold;">2010 Total Groundwater Use in Mgal/day</p><i style="background: #f8000c; opacity: 0.8"></i><p>500+</p><i style="background: #ff6343; opacity: 0.8"></i><p>300 - 500</p><i style="background: #ffa458; opacity: 0.8"></i><p>200 - 300</p><i style="background: #ffd58d; opacity: 0.8"></i><p>100 - 200</p><i style="background: #feffcd; opacity: 0.8"></i><p>0 - 100</p>'
+
 //<p style="text-align:left; font-weight:bold">Hover for source</p>'
 
     var layers = {  
-             'mining' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+             'counties': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:water_use_counties&maxFeatures=1000&outputFormat=application%2Fjson',
+            	{style:countyStyle, onEachFeature: function(feature, featureLayer) {
+        			featureLayer.bindTooltip(feature.properties.INSTNAME + " : "+feature.properties.total_use+" Mgal/day", {className: 'label_tooltip'});
+        			featureLayer.on({
+        					mouseover: highlightCounty,
+        					mouseout: resetCounty
+        				})
+    			}}
+            	), legend_county],	
+             'mining' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_mining',
               tiled: true,
               format: 'image/png',
@@ -187,7 +235,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_mining],
-          'domestic' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'domestic' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_domestic',
               tiled: true,
               format: 'image/png',
@@ -196,7 +244,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_domestic],
-          'agriculture' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'agriculture' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_agriculture',
               tiled: true,
               format: 'image/png',
@@ -205,8 +253,8 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_agriculture],
-        'irrigation' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
-              layers: 'baldricg_atlas:water_use_irrigation',
+        'irrigation' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
+              layers: 'baldricg_atlas:water_use_irrigation_points',
               tiled: true,
               format: 'image/png',
               transparent: true,
@@ -214,7 +262,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_irrigation],
-          'commercial' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'commercial' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_commercial',
               tiled: true,
               format: 'image/png',
@@ -223,7 +271,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_commercial],
-          'recreation' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'recreation' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_recreation',
               tiled: true,
               format: 'image/png',
@@ -232,7 +280,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_recreation],
-        'power' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+        'power' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_power',
               tiled: true,
               format: 'image/png',
@@ -241,7 +289,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_power],
-          'fish' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'fish' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_fish',
               tiled: true,
               format: 'image/png',
@@ -250,7 +298,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_fish],
-          'livestock' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'livestock' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_livestock',
               tiled: true,
               format: 'image/png',
@@ -259,7 +307,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_livestock],
-        	'municipal' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+        	'municipal' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_municipal',
               tiled: true,
               format: 'image/png',
@@ -268,7 +316,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_municipal],
-          'instream' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'instream' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_instream',
               tiled: true,
               format: 'image/png',
@@ -277,7 +325,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_instream],
-          'miscellaneous' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'miscellaneous' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_miscellaneous',
               tiled: true,
               format: 'image/png',
@@ -286,7 +334,7 @@
               minZoom: 6,
               continuousWorld: true
               }), legend_miscellaneous],
-          'wildlife' : [L.tileLayer.wms('http://mapio.us/geoserver/baldricg_atlas/wms', {
+          'wildlife' : [L.tileLayer.wms('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms', {
               layers: 'baldricg_atlas:water_use_wildlife',
               tiled: true,
               format: 'image/png',
@@ -300,7 +348,7 @@
 
     var scenes = {
             overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position: 'fullpage'},
-            counties: {lat: 44.1347254, lng:-122.7411479, zoom: 7},
+            counties: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['counties']},
             mining: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['mining']},
             domestic: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['domestic']},
             agriculture: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['agriculture']},

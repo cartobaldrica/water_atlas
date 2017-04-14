@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <meta property="og:title" content="Oregon Drinking Water" />
-    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/drinking_index.html" />
+    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/groundwater_index.html" />
     <meta property="og:description" content="Explore Oregon's drinking water." />
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -38,7 +38,7 @@
         <div class="col-sm-6 col-md-4 main">
         
              <section data-scene="overview">
-				 	<div class= "overview-background-img background-fullscreen-setting text-responsive text-shadow: black 0.2em 0.2em 0.3em;"><h4 class="text-center">Groundwater</h4><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">Groundwater is as important as it is mysterious. Its underground nature makes groundwater one of the most difficult aspects of Oregon's water resources to understand and measure. Despite its importance and widespread use, there are a lot holes in out knowledge regarding groundwater in Oregon. Part of this relates to the difficulty and complexity of obtaining quality information about groundwater, and part of it relates to the age of a lot of the data that do exist. Groundwater may be mysterious, but fully understanding its intricacies will be necessary in order to adequately plan for the future.</h4></div>
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive text-shadow: black 0.2em 0.2em 0.3em;"><h4 class="text-center" style="color: white">Groundwater</h4><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">Groundwater is as important as it is mysterious. Its underground nature makes groundwater one of the most difficult aspects of Oregon's water resources to understand and measure. Despite its importance and widespread use, there are a lot of holes in our knowledge regarding groundwater in Oregon. Part of this relates to the difficulty and complexity of obtaining quality information about groundwater, and part of it relates to the age of a lot of the data that do exist. Groundwater may be mysterious, but fully understanding its intricacies will be necessary in order to adequately plan for the future.</h4></div>
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>            
             </section>
             
@@ -93,7 +93,7 @@
     
     <i class="fa fa-info-circle social" style="top:10px" data-toggle="modal" data-target="#info-modal"></i>
     
-	<a class="fa fa-facebook-square social2" style="top:28px" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/drinking_index.html" target="_blank"></a>
+	<a class="fa fa-facebook-square social2" style="top:28px" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/groundwater_index.html" target="_blank"></a>
     
     <ul class="navbar text-center"></ul>
 
@@ -106,7 +106,8 @@
                     <h2 class="modal-title">About</h2>
                 </div>
                 <div class="modal-body">
-                    <p2>Cover Photo by Todd Jarvis</p2><br>
+                    <p2>Cover Photo by Angel Schatz - Retrieved from Flickr</p2><br>
+                    <p2>End Photo by Another Believer - Retrieved from Wikimedia Commons</p2><br>
                     <p2 style="font-size:20px">Geographic Data</p2><br>
                     <p2>Groundwater Recharge: <a href = "https://catalog.data.gov/dataset/a-digital-hydrologic-network-supporting-nawqa-mrb-sparrow-modeling-mrb-e2rf1ws" target="_blank">MRB-SPARROW Model</a> and <a href = "https://catalog.data.gov/dataset/attributes-for-mrb-e2rf1-catchments-by-major-river-basins-in-the-conterminous-united-state-20024c1a4" target="_blank">Recharge Attributes</a></p2><br>
                 	<p2>Aquifers: <a href = "https://water.usgs.gov/GIS/metadata/usgswrd/XML/aquifers_us.xml#stdorder" target="_blank">USGS</a></p2><br>
@@ -286,7 +287,7 @@
 //<p style="text-align:left; font-weight:bold">Hover for source</p>'
 
     var layers = {  	
-            'counties': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:gw_counties&maxFeatures=10000&outputFormat=application%2Fjson',
+            'counties': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:gw_counties&maxFeatures=10000&outputFormat=application%2Fjson',
             	{style:countyStyle, onEachFeature: function(feature, featureLayer) {
         			featureLayer.bindTooltip(feature.properties.INSTNAME + " : "+feature.properties.total+" Mgal/day", {className: 'label_tooltip'});
         			featureLayer.on({
@@ -295,10 +296,10 @@
         				})
     			}}
             	), legend_county],	
-            'county_outlines': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:gw_counties&maxFeatures=10000&outputFormat=application%2Fjson',
+            'county_outlines': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:gw_counties&maxFeatures=10000&outputFormat=application%2Fjson',
             	{style:countyStyle2}
             	)],
-            'conservation_critical': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_conservation&maxFeatures=500&outputFormat=application%2Fjson',
+            'conservation_critical': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_conservation&maxFeatures=500&outputFormat=application%2Fjson',
             	{style:critStyle, onEachFeature: function(feature, featureLayer) {
             		if (feature.properties.Type != 'GWMA'){
         				featureLayer.bindTooltip(feature.properties.NAME, {className: 'label_tooltip'});
@@ -312,7 +313,7 @@
         			
     			}}
             	), legend_crit],
-            'groundwater_dissolved': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_dissolved&maxFeatures=50&outputFormat=application%2Fjson',
+            'groundwater_dissolved': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_dissolved&maxFeatures=50&outputFormat=application%2Fjson',
             	{style:gwStyle, onEachFeature: function(feature, featureLayer) {
         				featureLayer.bindTooltip(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: true});
     					featureLayer.bindPopup(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: false});
@@ -323,7 +324,7 @@
         				
     				}}
             	), legend_recharge],
-        	'conservation_management': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_conservation&maxFeatures=500&outputFormat=application%2Fjson',
+        	'conservation_management': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_conservation&maxFeatures=500&outputFormat=application%2Fjson',
             	{style:consStyle, onEachFeature: function(feature, featureLayer) {
             		if (feature.properties.Type == 'GWMA'){
         				featureLayer.bindTooltip(feature.properties.NAME, {className: 'label_tooltip'});
@@ -337,28 +338,28 @@
         			
     			}}
             	), legend_manage],
-            'groundwater_reprojected': [L.tileLayer.wms("http://mapio.us/geoserver/baldricg_atlas/wms", {
+            'groundwater_reprojected': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
         			layers: 'baldricg_atlas:groundwater_reprojected',
         			format: 'image/png',
         			minZoom: 6,
         			maxZoom: 15,
         			transparent: true,
     			})],
-    		'irrigation': [L.tileLayer.wms("http://mapio.us/geoserver/baldricg_atlas/wms", {
+    		'irrigation': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
         			layers: 'baldricg_atlas:groundwater_irrigation',
         			format: 'image/png',
         			minZoom: 11,
         			maxZoom: 15,
         			transparent: true,
     			}), legend_irrigation],
-    		'irrigation_points': [L.tileLayer.wms("http://mapio.us/geoserver/baldricg_atlas/wms", {
+    		'irrigation_points': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
         			layers: 'baldricg_atlas:groundwater_irrigation_points',
         			format: 'image/png',
         			minZoom: 6,
         			maxZoom: 10,
         			transparent: true,
     			})],
-    		'elevation': [L.tileLayer.wms("http://mapio.us/geoserver/baldricg_basemap/wms", {
+    		'elevation': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_basemap/wms", {
         			layers: 'baldricg_basemap:or_relief',
         			format: 'image/png',
         			minZoom: 6,

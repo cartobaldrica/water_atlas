@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Oregon Drinking Water</title>
+    <title>Drinking Water</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -162,7 +162,7 @@
 //<p style="text-align:left; font-weight:bold">Hover for source</p>'
 
     var layers = {  
-            'contaminants' : [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:contaminants&maxFeatures=100000&outputFormat=application%2Fjson', {
+            'contaminants' : [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:contaminants&maxFeatures=100000&outputFormat=application%2Fjson', {
             	pointToLayer: function (feature, latlng) {
     			return L.circleMarker(latlng, {
     				color: contaminant_level(feature.properties.MOD_RISK),
@@ -173,7 +173,7 @@
     					).bindTooltip(feature.properties.PCS_NAME, {className: 'label_tooltip'});
     				}
 				}), legend_contaminants],
-			'grid1': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:contaminant_point_grid&maxFeatures=10000&outputFormat=application%2Fjson', {
+			'grid1': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:contaminant_point_grid&maxFeatures=10000&outputFormat=application%2Fjson', {
     				pointToLayer: function (feature, latlng) {
     					return L.circleMarker(latlng, 
     						{
@@ -186,7 +186,7 @@
 							}
 								).bindTooltip('Contaminants: ' + feature.properties.NUMPOINTS, {opacity: setOpacity(feature.properties.level, 1), className: 'label_tooltip'});}
     			}),legend_grid],	
-            'surface': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:drinking_sw&maxFeatures=500&outputFormat=application%2Fjson',
+            'surface': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:drinking_sw&maxFeatures=500&outputFormat=application%2Fjson',
             	{style:surface_style, onEachFeature: function(feature, featureLayer) {
         			featureLayer.bindTooltip(feature.properties.PWS_NAME, {className: 'label_tooltip'});
         			featureLayer.on({
@@ -195,26 +195,26 @@
         				})
     			}}
             	), legend_sw],
-            'ground': [L.geoJson.ajax('http://mapio.us/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:drinking_gw&maxFeatures=10000&outputFormat=application%2Fjson',
+            'ground': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:drinking_gw&maxFeatures=10000&outputFormat=application%2Fjson',
             	{style:ground_style, onEachFeature: function(feature, featureLayer) {
         			featureLayer.bindTooltip(feature.properties.TINWSYS_NA, {className: 'label_tooltip'});
     			}}
             	), legend_gw],	
-            'ground2': [L.tileLayer.wms("http://mapio.us/geoserver/baldricg_atlas/wms", {
+            'ground2': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
         			layers: 'baldricg_atlas:drinking_gw',
         			format: 'image/png',
         			minZoom: 6,
         			maxZoom: 15,
         			transparent: true,
     			})],
-    		'ground3': [L.tileLayer.wms("http://mapio.us/geoserver/baldricg_atlas/wms", {
+    		'ground3': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
         			layers: 'baldricg_atlas:drinking_gw',
         			format: 'image/png',
         			minZoom: 6,
         			maxZoom: 15,
         			transparent: true,
     			}), legend_gw],
-    		'surface2': [L.tileLayer.wms("http://mapio.us/geoserver/baldricg_atlas/wms", {
+    		'surface2': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
         			layers: 'baldricg_atlas:drinking_sw',
         			format: 'image/png',
         			minZoom: 6,
