@@ -6,6 +6,7 @@
     padding: 20px;
     padding-top: 12px;
     padding-bottom: 600px;
+    margin-bottom:20px;
 }
 
 .main .page-header {
@@ -47,11 +48,11 @@
 
 .navbar {
     position: fixed;
-    top: 40%;
-    left: 0;
+    top: 5%;
+    left: 92%;
     z-index: 1002;
     border-radius: 3px;
-    background: rgba(115, 115, 115, 0.2);
+    background: rgba(255, 255, 255, .8);
     color: rgba(63, 63, 63, 0.3);
     padding:0;
     margin:0;
@@ -61,7 +62,13 @@
     filter:alpha(opacity=0);
     -moz-opacity:0;
 }
+.navbar:hover{
+	opacity:1;
+	}
 
+div.chapter-control:hover ~ .navbar{
+	opacity:1;
+}
 .navbar > li {
     position: relative;
     display: block !important;
@@ -72,13 +79,39 @@
 .navbar li a {
     outline: 1px;
     border: 0;
-    padding: 8px;
+    padding: 4px;
     background-color: transparent;
+    font-size:12px;
+    font-weight:bold;
 }
 
 
-.navbar li a:visited,.navbar li a:active, .navbar li a:link  {color: rgba(0, 0, 0, 0.6); text-decoration:none}
-.navbar li a:hover   {color: rgba(255, 255, 255, 0.5); text-decoration:none; font-size:14px}
+.navbar li a:visited,.navbar li a:active, .navbar li a:link  {color: rgba(0, 0, 0, 1); text-decoration:none}
+.navbar li a:hover   {color: rgba(0, 0, 0, .5); background-color:black); text-decoration:none;}
+
+div.chapter-control{
+	position: fixed;
+    top: 4.5%;
+    left: 93.6%;
+    z-index: 2002;
+    opacity:1;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 5px;
+    padding:4px;
+	margin:3px;
+}
+
+div.chapter-control:hover{
+	opacity:0
+	padding-bottom: 1000px;
+}
+
+div.chapter-control p{
+	font-size:14px;
+	text-shadow: black 0em 0em 0em;
+	color:black;
+	margin:0px;
+}
 
 h4{
 	font-family: "Inconsolata", sans-serif;
@@ -181,13 +214,12 @@ h4{
 
 .legend {
     line-height: 16px;
-    width: 150px;
     color: #333333;
 	font-family: "Verdana", Geneva, sans-serif;
-    padding: 6px 8px;
     background: rgba(255,255,255,0.8);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
+    padding-left: 100px;
 }
 
 .legend2 {
@@ -278,6 +310,8 @@ h1{
 p{
 	font-family: "Inconsolata", sans-serif;
 	text-shadow: black 0.2em 0.2em 0.3em;
+	font-size:20px;
+	
 }
 p2{
 	font-family: "Inconsolata", sans-serif;
@@ -294,23 +328,62 @@ h3{
 		text-shadow: black 0.2em 0.2em 0.3em;
 
 	}
+	
+div.leg {
+    line-height: 16px;
+    color: #333333;
+	font-family: "Verdana", Geneva, sans-serif;
+    /*background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;*/
+}
 
-.social,.social2 {
+div.leg i {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.9;
+    z-index: 1000;
+}
+
+div.leg img {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    float: left;
+}
+
+div.leg p {
+    font-size: 12px;
+    color: white;
+    line-height: 16px;
+    margin: 0;
+    text-shadow: black 0.0em 0.0em 0.0em;
+}
+
+
+
+.social,.social2,.social3 {
     position:fixed;
     cursor: pointer;
     font-size:24px;
     color:white;
-    z-index:1003;
+    z-index:1001;
 	font-family: "Inconsolata", sans-serif;
-    top: 2%;
-    left:7px;
+    top: 10px;
+    left: 98%;
 }
 .social:hover {
     color: gray;
     text-decoration: none;
 }
 .social2:hover {
-    color: blue;
+    color: "#3b5998";
+    text-decoration: none;
+}
+.social3:hover {
+    color: "#0084b4";
     text-decoration: none;
 }
 .label_tooltip {
@@ -328,4 +401,6 @@ h3{
   border-right-color: white;
   opacity: 1;
 }
+
+
 
