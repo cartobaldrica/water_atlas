@@ -19,7 +19,7 @@
 
 	<link rel="shortcut icon" href="img/oregon.ico" type="image/x-icon">
 	
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
@@ -38,46 +38,69 @@
         <div class="col-sm-6 col-md-4 main">
         
              <section data-scene="overview">
-				 	<div class= "overview-background-img background-fullscreen-setting text-responsive text-shadow: black 0.2em 0.2em 0.3em;"><h4 class="text-center" style="color: white">Groundwater</h4><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">Groundwater is as important as it is mysterious. Its underground nature makes groundwater one of the most difficult aspects of Oregon's water resources to understand and measure. Despite its importance and widespread use, there are a lot of holes in our knowledge regarding groundwater in Oregon. Part of this relates to the difficulty and complexity of obtaining quality information about groundwater, and part of it relates to the age of a lot of the data that do exist. Groundwater may be mysterious, but fully understanding its intricacies will be necessary in order to adequately plan for the future.</h4></div>
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive text-shadow: black 0.2em 0.2em 0.3em;"><h4 class="text-center" style="color: white">Groundwater</h4><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%; text-align: justify;">Groundwater is the most difficult aspect of Oregon's water to measure. It primarily exists in the spaces between soil and rock particles underground. Groundwater is particularly important in Eastern and Central Oregon, where surface water supplies are limited. </h4>
+                	<br/><br/>
+                	<p class ="text-center" style="font-size:14px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 30%; margin-right:30%; ">Created by Gareth Baldrica-Franklin, Institute for Water and Watersheds, Oregon State University</p></div>
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>            
             </section>
             
              <section data-scene="recharge">
                 <h3>Aquifers and Recharge</h3>
-                <p>Groundwater recharge is notoriously difficult to measure. Factors affecting recharge rates are numerous and variable, typically creating a necessity for extrapolation and modeling. The recharge data in this map was modeled in 2002 by the USGS in terms of estimated average groundwater recharge in millimeters per year.</p>
-				<p>Although recharge is independant of aquifer type, differences in aquifers affect the ease of groundwater extraction for human uses. Thus, the map combines the modeled recharge rate with the three aquifer categories defined by the USGS in Oregon.</p>
-				<p style = "font-size:16px">Aquifer Types:</p>
-				<p style = "color: #4d79ff; font-size:16px">Unconsolidated Sand and Gravel</p>
-				<p>Sand and gravel aquifers exist in lowlands and river valleys. Consisting of fine-grained sediments, sand and gravel aquifers are caused by faulting, erosion or both. They are shallow and typically easy to access, which is reflected in their widespread use in public, domestic and industrial settings.</p>
-				<p style = "color: #66cc66; font-size:16px">Volcanic</p>
-				<p>Central and Eastern Oregon are dominated by basalt flows and volcanoes, resulting in wide swaths of aquifers with volcanic origin. In basalt flows, joints between rock allow water to flow through freely, making them the most productive of volcanic-type aquifers. Regardless, permeability and ease of access in volcanic aquifers is largely variable.</p>
-				<p style = "color: #a3a375; font-size:16px">Other Rock Types</p>
-				<p>Other aquifers in Oregon consist of various rock types and are common in the mountainous areas surrounding the Coast Range and the Wallowas. These formations share old age, and some have a marine origin. They are among the least productive aquifers in the state, and are typically only tapped for groundwater out of necessity.</p> 
+ 				<p>Groundwater exists in aquifers, which vary based on rock type. Oregon has three principal aquifer rock types. Different aquifer types have variable productivity and accessibility.</p>
+				<p>Groundwater recharge is a measurement of how quickly aquifers are replenished with new water. Recharge mainly depends on precipitation, elevation, permeability and plant cover. Greater recharge generally means more sustainable groundwater.</p>				
+				<div class="leg"><p style="text-align: left; font-weight: bold;">Recharge(mm/yr)</p><p style="text-align: left;">0 &nbsp 20 &nbsp100 &nbsp500 <p style="text-align: left; margin-top: -15px; margin-left:120px; margin-bottom:3px; font-weight: bold;">&nbspAquifer Type</p></p><i style="background: #e6ecff; fillOpacity: .7; color:#e6ecff; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #99b3ff; fillOpacity: .7; color:#99b3ff; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7; "></i><i style="background: #4d79ff; fillOpacity: .7; color:#4d79ff; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #0033cc; fillOpacity: .7; color:#0033cc; margin-right: 0px;  width: 30px; weight: 1; opacity: 0.7; "></i><p style="text-align: left; font-size:11px">&nbspSand/Gravel</p><i style="background: #ecf9ec; fillOpacity: .7; color:#ecf9ec; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #b3e6b3; fillOpacity: .7; color:#b3e6b3; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7;"></i><i style="background: #66cc66; fillOpacity: .7; color:#66cc66; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #267326; fillOpacity: .7; color:#267326; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><p style="text-align: left;">&nbspVolcanic</p><i style="background: #ebebe0; fillOpacity: .7; color:#ebebe0; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #ccccb3; fillOpacity: .7; color:#ccccb3; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7;"></i><i style="background: #a3a375; fillOpacity: .7; color:#a3a375; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #5c5c3d; fillOpacity: .7; color:#5c5c3d; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><p style="text-align: left;">&nbspOther</p><p>Hover for details</p></div>
 			</section>     
+			
+			<section data-scene="recharge2">
+				<p style = "color: #4d79ff; display:inline">Sand and gravel</p><p style ="display:inline"> aquifers exist in lowlands and river valleys. They are shallow, accesible, and comprise the most productive aquifers in the state.</p>
+				<br/><br/>
+				<p>Sand and gravel aquifers are formed by erosion or faulting. They typically yield 20-2,000 gallons per minute to wells.</p>
+				<br/>
+				<div class="leg"><p style="text-align: left; font-weight: bold;">Recharge(mm/yr)</p><p style="text-align: left;">0 &nbsp 20 &nbsp100 &nbsp500</p><i style="background: #e6ecff; fillOpacity: .7; color:#e6ecff; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #99b3ff; fillOpacity: .7; color:#99b3ff; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7; "></i><i style="background: #4d79ff; fillOpacity: .7; color:#4d79ff; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #0033cc; fillOpacity: .7; color:#0033cc; margin-right: 0px;  width: 30px; weight: 1; opacity: 0.7; "></i></div>
+			</section>    
+			
+			<section data-scene="recharge3">
+				<p style = "color: #66cc66; display:inline">Volcanic</p><p style ="display:inline"> aquifers cover eastern and central Oregon. Basalt flows form the most productive volcanic aquifers, while other volcanic formations are more variable.</p>
+				<br/><br/>
+				<p>A lot of volcanic aquifers exist in remote areas. As a result, there is a lack of information about the depth of these aquifers.</p>
+				<br/>
+				<div class="leg"><p style="text-align: left; font-weight: bold;">Recharge(mm/yr)</p><p style="text-align: left;">0 &nbsp 20 &nbsp100 &nbsp500 </p><i style="background: #ecf9ec; fillOpacity: .7; color:#ecf9ec; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #b3e6b3; fillOpacity: .7; color:#b3e6b3; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7;"></i><i style="background: #66cc66; fillOpacity: .7; color:#66cc66; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #267326; fillOpacity: .7; color:#267326; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i></div>
+			</section> 
+			
+			<section data-scene="recharge4">
+				<p style = "color: #a3a375; display:inline">Other</p><p style ="display:inline"> aquifers in Oregon consist of various rock types, many of which are older than volcanic and sand and gravel aquifers, and typically have marine origin.</p> 
+				<br/><br/>
+				<p>These aquifers, on average, yield 1 to 100 gallons a minute to wells, making them among the least productive aquifers in the state.</p>
+				<br/>
+				<div class="leg"><p style="text-align: left; font-weight: bold;">Recharge(mm/yr)</p><p style="text-align: left;">0 &nbsp 20 &nbsp100 &nbsp500</p><i style="background: #ebebe0; fillOpacity: .7; color:#ebebe0; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #ccccb3; fillOpacity: .7; color:#ccccb3; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7;"></i><i style="background: #a3a375; fillOpacity: .7; color:#a3a375; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #5c5c3d; fillOpacity: .7; color:#5c5c3d; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i></div>
+			</section> 
 			
 			<section  data-scene="irrigation_aquifers">
                 <h3>Irrigation and Aquifers</h3>
-				<p>89.7% of total groundwater extraction is used for irrigation. Each point on the map represents an irrigation water right. The points are combined with aquifer type, highlighting the dramatic reliance on unconsolidated sand and gravel aquifers.</p>
-            	<p>With so much reliance on specific aquifers, especially in the drought-prone regions of Eastern Oregon, the question of groundwater sustainability becomes paramount. However, measuring the total capacity of an aquifer, especially one with multiple extraction points, is still a difficult and unreliable process.</p> 
+				<p>Almost 90% of Oregon's groundwater extraction is used for irrigation. Each point on the map represents a water right declared for irrigation, and is colored based on the underlying aquifer type.</p>
+            	<p>With so much reliance on specific aquifers, especially in the drought-prone regions of Eastern Oregon, the question of groundwater sustainability becomes paramount.</p> 
+            	<div class="leg"><p style="text-align: left; font-weight:bold">Groundwater Irrigation Rights</p><br><p style="text-align: left;  style = "margin-top:20px;">Aquifer Type</p><img src="img/sandgravel.png" style="height:6px; width:6px; margin-top:11px; margin-left:1px;"><p style = "margin-top:5px;">Sand and Gravel</p><img src="img/igneous.png" style="height:6px; width:6px; margin-top:11px; margin-left:1px;"><p style = "margin-top:5px;">Igneous/Metamorphic</p><img src="img/other.png" style="height:6px; width:6px; margin-top:11px; margin-left:1px;"><p style = "margin-top:5px;">Other Rocks</p></div>
             </section> 
     		
     		<section  data-scene="county_use">
                 <h3>County Use</h3>
            	    <p>The USGS's National Water Use Information Program compiles water use data by county every five years. Water use data is categorized by both its purpose (irrigation, domestic, mining, etc.) and its type (surface or ground, fresh or saline). Data are collected in terms of millions of gallons extracted per day.</p>
-				<p>Groundwater use has a vastly different distribution than surface water use, and highlights which regions of Oregon rely primarily on groundwater. However, the seasonality of water use isn't reflected in USGS compilations. For example, the average daily rate of irrigation over an entire year will always be lower than the daily rate of irrigation during summer.</p>           
+            	<div class="leg"><p style ="font-weight: bold;">2010 Total Groundwater <br/> Use in Mgal/day</p><i style="background: #f8000c; opacity: 0.8"></i><p>300+</p><i style="background: #ff6343; opacity: 0.8"></i><p>200 - 300</p><i style="background: #ffa458; opacity: 0.8"></i><p>100 - 200</p><i style="background: #ffd58d; opacity: 0.8"></i><p>25 - 100</p><i style="background: #feffcd; opacity: 0.8"></i><p>0 - 25</p></div>
             </section>      
              
             <section data-scene="conservation_critical">
-                <h3>Groundwater Conservation</h3>
-                <p style = "color: #f8000c; font-size:16px">Critical Groundwater Area</p>
-          	    <p>In 1965, the Oregon state legislature established the critical groundwater program as a legal framework for groundwater conservation. Critical groundwater areas are created in areas where it is estimated that excessive extraction has resulted in declining groundwater levels. Established critical groundwater areas face restrictions on withdrawal rates and limits on the ability to obtain new groundwater permits.</p>
-                <p style = "color: #ffa458; font-size:16px">Groundwater Limited Area</p>
-                <p>The groundwater limited area program was established in 1992. It is designed to conserve groundwater in areas where groundwater levels are at risk of falling and to combat general resource depletion. Restrictions in groundwater limited areas are often not as severe as they are in critical groundwater areas.</p>
+                <h3>Conservation</h3>
+          	    <p style = "display: inline">First established in 1965, </p><p style = "color: #f8000c; display: inline">Critical Groundwater Areas</p><p style = "display: inline"> are created in areas where it is estimated that excessive extraction has resulted in declining groundwater levels. Critical groundwater areas face restrictions on withdrawal rates and limits on the ability to obtain new groundwater permits.</p>
+                <br/><br/>
+                <p style = "display: inline">The </p><p style = "color: #ffa458; display: inline">Groundwater Limited Area</p><p style = "display: inline"> program is designed to conserve groundwater in areas where groundwater levels are at risk of falling. Restrictions in groundwater limited areas are often not as severe as they are in critical groundwater areas.</p>
+            	<br/><br/>
+            	<div class="leg"><i style="background: #f8000c; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">GW Critical Area</b></p><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">GW Limited Area</b></p></div>
             </section>
             
             <section data-scene="conservation_management">
-                <h3>Groundwater Management</h3>
-				<p>In an effort to conserve groundwater quality, the Oregon DEQ established the Groundwater Management Area program. GWMAs are formed in areas that observe increased contaminant levels at least partially originating from nonpoint sources. The three designated GWMAs in Oregon were all created in response to increased nitrate levels. Local management committees are formed in affected areas and work with state agencies to produce action plans to reduce contaminant levels.</p>
+                <h3>Management</h3>
+				<p>Groundwater Management Areas are declared by the DEQ in areas that have increased contaminant levels. The three designated GWMAs in Oregon were all created in response to increased nitrate levels. Local management committees are formed in affected areas and work with state agencies to produce action plans to reduce contaminant levels.</p>
+            	<div class="leg"><i style="background: #ffa458; fillOpacity: .8; weight: 1; opacity: 0.8; border:1px solid #fffff"></i><b><p style="text-align: left; margin-left: 25px">GW Management Area</b></p></div>
             </section>
    
             <section data-scene="end">
@@ -91,9 +114,15 @@
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
     </div>
     
-    <i class="fa fa-info-circle social" style="top:10px" data-toggle="modal" data-target="#info-modal"></i>
+    <i class="fa fa-info-circle social" style="left:94%;" data-toggle="modal" data-target="#info-modal"></i>
     
-	<a class="fa fa-facebook-square social2" style="top:28px" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/groundwater_index.html" target="_blank"></a>
+	<a class="fa fa-facebook-square social2" style="left:95.2%;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/groundwater_index.html" target="_blank"></a>
+        
+    <a class="fa fa-twitter-square social3" style="left:96.4%;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/groundwater_index.html" target="_blank"></a>
+	
+	<a class="fa fa-github-square social3" style="left:97.6%;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
+
+    <!--<div class="chapter-control"><p>Topics</p></div>-->
     
     <ul class="navbar text-center"></ul>
 
@@ -274,10 +303,62 @@
         	weight: 1
     	});
     }
-// 
+//sand and gravel
+	function sandStyle(feature) {
+        return {
+           fillColor: gwColor(feature.properties.Z, feature.properties.recharge), 
+           fillOpacity: sandOpacity(feature.properties.Z), 
+           color: gwColor(feature.properties.Z, feature.properties.recharge), 
+           opacity: sandOpacity(feature.properties.Z), 
+           weight: 1
+        };
+    }
+	
+	function sandOpacity(density){
+        if (density == 3) {return 0.7}
+        else if (density == 2) {return 0}
+        else {return 0}
+   	}
+    
+//volcanic
+function volStyle(feature) {
+        return {
+           fillColor: gwColor(feature.properties.Z, feature.properties.recharge), 
+           fillOpacity: volOpacity(feature.properties.Z), 
+           color: gwColor(feature.properties.Z, feature.properties.recharge), 
+           opacity: volOpacity(feature.properties.Z), 
+           weight: 1
+        };
+    }
+	
+	function volOpacity(density){
+        if (density == 3) {return 0}
+        else if (density == 2) {return 0.7}
+        else {return 0}
+   	}
+
+
+//other
+function otherStyle(feature) {
+        return {
+           fillColor: gwColor(feature.properties.Z, feature.properties.recharge), 
+           fillOpacity: otherOpacity(feature.properties.Z), 
+           color: gwColor(feature.properties.Z, feature.properties.recharge), 
+           opacity: otherOpacity(feature.properties.Z), 
+           weight: 1
+        };
+    }
+	
+	function otherOpacity(density){
+        if (density == 3) {return 0}
+        else if (density == 2) {return 0}
+        else {return 0.7}
+   	}
+
+
 	var surface_style2 = {fillColor: '#b3d1ff', fillOpacity: 1, color: '#4d94ff', radius: 1, opacity: 1, weight: 1};
 
-	var legend_recharge = '<p style="text-align: left; font-weight: bold;">Recharge(mm/yr)</p><p style="text-align: left; font-size:10px">0 20 100 500 <p style="text-align: left; margin-top: -15px; margin-left:72px; font-weight: bold;">Aquifer</p></p><i style="background: #e6ecff; fillOpacity: .7; color:#e6ecff; margin-right: 0px;   weight: 1; opacity: 0.7; width: 18px;  "></i><i style="background: #99b3ff; fillOpacity: .7; color:#99b3ff; width: 18px;   margin-right: 0px;   weight: 1; opacity: 0.7; "></i><i style="background: #4d79ff; fillOpacity: .7; color:#4d79ff; margin-right: 0px;   width: 18px;   weight: 1; opacity: 0.7;"></i><i style="background: #0033cc; fillOpacity: .7; color:#0033cc; margin-right: 0px;  width: 18px; weight: 1; opacity: 0.7; "></i><p style="text-align: left; font-size:11px">Sand/Gravel</p><i style="background: #ecf9ec; fillOpacity: .7; color:#ecf9ec; margin-right: 0px;   weight: 1; opacity: 0.7; width: 18px;  "></i><i style="background: #b3e6b3; fillOpacity: .7; color:#b3e6b3; width: 18px;   margin-right: 0px;   weight: 1; opacity: 0.7;"></i><i style="background: #66cc66; fillOpacity: .7; color:#66cc66; margin-right: 0px;   width: 18px;   weight: 1; opacity: 0.7;"></i><i style="background: #267326; fillOpacity: .7; color:#267326; margin-right: 0px;   width: 18px;   weight: 1; opacity: 0.7;"></i><p style="text-align: left;">Volcanic</p><i style="background: #ebebe0; fillOpacity: .7; color:#ebebe0; margin-right: 0px;   weight: 1; opacity: 0.7; width: 18px;  "></i><i style="background: #ccccb3; fillOpacity: .7; color:#ccccb3; width: 18px;   margin-right: 0px;   weight: 1; opacity: 0.7;"></i><i style="background: #a3a375; fillOpacity: .7; color:#a3a375; margin-right: 0px;   width: 18px;   weight: 1; opacity: 0.7;"></i><i style="background: #5c5c3d; fillOpacity: .7; color:#5c5c3d; margin-right: 0px;   width: 18px;   weight: 1; opacity: 0.7;"></i><p style="text-align: left;">Other</p>';
+	var legend_recharge = '<p style="text-align: left; font-weight: bold;">Recharge(mm/yr)</p><p style="text-align: left; font-size:10px">0 20 100 500 <p style="text-align: left; margin-top: -15px; margin-left:72px; font-weight: bold;">Aquifer</p></p><i style="background: #e6ecff; fillOpacity: .7; color:#e6ecff; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #99b3ff; fillOpacity: .7; color:#99b3ff; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7; "></i><i style="background: #4d79ff; fillOpacity: .7; color:#4d79ff; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #0033cc; fillOpacity: .7; color:#0033cc; margin-right: 0px;  width: 30px; weight: 1; opacity: 0.7; "></i><p style="text-align: left; font-size:11px">Sand/Gravel</p><i style="background: #ecf9ec; fillOpacity: .7; color:#ecf9ec; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #b3e6b3; fillOpacity: .7; color:#b3e6b3; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7;"></i><i style="background: #66cc66; fillOpacity: .7; color:#66cc66; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #267326; fillOpacity: .7; color:#267326; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><p style="text-align: left;">Volcanic</p><i style="background: #ebebe0; fillOpacity: .7; color:#ebebe0; margin-right: 0px;   weight: 1; opacity: 0.7; width: 30px;  "></i><i style="background: #ccccb3; fillOpacity: .7; color:#ccccb3; width: 30px;   margin-right: 0px;   weight: 1; opacity: 0.7;"></i><i style="background: #a3a375; fillOpacity: .7; color:#a3a375; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><i style="background: #5c5c3d; fillOpacity: .7; color:#5c5c3d; margin-right: 0px;   width: 30px;   weight: 1; opacity: 0.7;"></i><p style="text-align: left;">Other</p>';
 	var legend_irrigation = '<p style="text-align: left; font-weight:bold">Groundwater Irrigation Rights</p><br><p style="text-align: left;  style = "margin-top:20px;">Aquifer Type</p><img src="img/sandgravel.png" style="height:6px; width:6px; margin-top:11px; margin-left:1px;"><p style = "margin-top:5px;">Sand and Gravel</p><img src="img/igneous.png" style="height:6px; width:6px; margin-top:11px; margin-left:1px;"><p style = "margin-top:5px;">Igneous/Metamorphic</p><img src="img/other.png" style="height:6px; width:6px; margin-top:11px; margin-left:1px;"><p style = "margin-top:5px;">Other Rocks</p>';
 	var legend_county ='<p style ="font-weight: bold;">2010 Total Groundwater Use in Mgal/day</p><i style="background: #f8000c; opacity: 0.8"></i><p>300+</p><i style="background: #ff6343; opacity: 0.8"></i><p>200 - 300</p><i style="background: #ffa458; opacity: 0.8"></i><p>100 - 200</p><i style="background: #ffd58d; opacity: 0.8"></i><p>25 - 100</p><i style="background: #feffcd; opacity: 0.8"></i><p>0 - 25</p>'
 
@@ -321,6 +402,27 @@
         					mouseover: highlightGroundwater,
         					mouseout: resetGroundwater
         				})
+        				
+    				}}
+            	), legend_recharge],
+            'sand_dissolved': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_dissolved&maxFeatures=50&outputFormat=application%2Fjson',
+            	{style:sandStyle, onEachFeature: function(feature, featureLayer) {
+        				featureLayer.bindTooltip(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: true});
+    					featureLayer.bindPopup(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: false});
+        				
+    				}}
+            	), legend_recharge],
+            'volcanic_dissolved': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_dissolved&maxFeatures=50&outputFormat=application%2Fjson',
+            	{style:volStyle, onEachFeature: function(feature, featureLayer) {
+        				featureLayer.bindTooltip(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: true});
+    					featureLayer.bindPopup(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: false});
+        				
+    				}}
+            	), legend_recharge],
+            'other_dissolved': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_dissolved&maxFeatures=50&outputFormat=application%2Fjson',
+            	{style:otherStyle, onEachFeature: function(feature, featureLayer) {
+        				featureLayer.bindTooltip(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: true});
+    					featureLayer.bindPopup(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: false});
         				
     				}}
             	), legend_recharge],
@@ -370,13 +472,16 @@
     };
 
     var scenes = {
-            overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position:'fullpage'},
-            recharge: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['elevation','groundwater_dissolved']},
-            conservation_critical: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['conservation_critical']},
-            conservation_management: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['conservation_management']},
-            county_use: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['counties']},
-            irrigation_aquifers: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['irrigation_points','irrigation']},
-            end: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position:'fullpage'}
+            overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Home', position:'fullpage'},
+            recharge: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Aquifers', layers:['elevation','groundwater_dissolved']},
+            recharge2: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Sand/Gravel', layers:['elevation','sand_dissolved']},
+            recharge3: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Volcanic', layers:['elevation','volcanic_dissolved']},
+            recharge4: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Other', layers:['elevation','other_dissolved']},
+            conservation_critical: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Conservation', layers:['conservation_critical']},
+            conservation_management: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Management', layers:['conservation_management']},
+            county_use: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'County Use', layers:['counties']},
+            irrigation_aquifers: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Irrigation', layers:['irrigation_points','irrigation']},
+            end: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'End', position:'fullpage'}
     };
     
     
@@ -384,7 +489,7 @@
     $('.main').storymap({
         scenes: scenes,
         layers:layers,
-        legend: true,
+        legend: false,
         scale:false,
         navbar: true,
         createMap: function () {

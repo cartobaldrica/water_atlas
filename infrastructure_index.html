@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Infrastructure</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Oregon Drinking Water" />
+    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/drinking_index.html" />
+    <meta property="og:description" content="Explore Oregon's drinking water." />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="css/infrastructure_style.css">
+    <link rel="stylesheet" href="css/control-minimap.css" />
+    <link rel="stylesheet" href="css/ekko-lightbox.css"/>        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata" />
+
+	<link rel="shortcut icon" href="img/oregon.ico" type="image/x-icon">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/leaflet.ajax.min.js"></script>
+    <script src="js/storymap_fixed.js"></script>
+	<script src="js/ekko-lightbox.js"></script>
+	<script src="js/control-minimap.js" type="text/javascript"></script>
+	
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 main">
+        
+             <section data-scene="overview">
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive text-shadow: black 0.2em 0.2em 0.3em;"><h4 class="text-center">Infrastructure</h4><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%">The Willamette Valley has a reputation for its drinking water. Over 80% of Oregonians get drinking water from public water systems. Many of these systems rely on some combination of ground and surface water sources. From the pristine Bull Run watershed, to the groundwater wells of Eastern Oregon, maintaining quality drinking water requires continual testing and communication.</h4>
+                	<br/><br/>
+                	<p class ="text-center" style="font-size:14px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 30%; margin-right:30%; ">Created by Gareth Baldrica-Franklin, Institute for Water and Watersheds, Oregon State University</p></div>
+                	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>            
+            </section>
+            
+             <section data-scene="dams">
+                <h3>Dams</h3>
+                <p>Only 10% of Oregon drinking water authorities offer solely surface water, while 55% offer some combination of surface water and groundwater. The Bull Run watershed and the Bull Run reservoir, maintained by the Portland Water Bureau, is perhaps most notable surface water source in the state. Elsewhere within the Willamette Valley, surface water is also typically stored in reservoirs, although river water is treated and distributed as well.</p>
+			</section>           
+            
+            <section data-scene="hydro">
+                <h3>Hydropower</h3>
+                <p>35% of Oregonians rely on groundwater, typically from either small public water systems or private wells. Groundwater recharge areas require different protection strategies than surface watersheds. Wells are more commonly utilized in drier parts of the state.</p>
+          	    <p>In the Willamette Valley, groundwater is often used as an emergency water source. It is typically utilized when contaminants are found in surface water areas, or when reservoirs are low.</p>
+            </section> 
+            
+            <section data-scene="bridges">
+                <h3>Bridges	</h3>
+                <p>In addition to municipally provided drinking water, over 20 companies utilize Oregon's water for bottling. These range from multi-national corporations, such as PepsiCo, to local small businesses.</p>
+            	<p>A water bottling facility proposed by Nestle in Cascade Locks has created controversy as a debate between economic benefit and ecological cost.</p>
+            </section>
+            
+            <section data-scene="end">
+				 	<div class= "end-background-img background-fullscreen-setting text-responsive"><br>
+                	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>     
+            </section>
+        	
+        	<i class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></i>
+
+        </div>
+        <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
+    </div>
+    
+    <i class="fa fa-info-circle social" style="left:94%;" data-toggle="modal" data-target="#info-modal"></i>
+    
+	<a class="fa fa-facebook-square social2" style="left:95.2%;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+        
+    <a class="fa fa-twitter-square social3" style="left:96.4%;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+	
+	<a class="fa fa-github-square social3" style="left:97.6%;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
+    
+    <ul class="navbar text-center"></ul>
+
+    
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">About</h2>
+                </div>
+                <div class="modal-body">
+                    <p2>Cover Photo by Sam Beebe/Ecotrust - retrieved from Wikimedia Commons</p2><br>
+                    <p2 style="font-size:20px">Geographic Data</p2><br>
+                    <p2>Surface Source Areas: <a href = "http://spatialdata.oregonexplorer.info/geoportal/catalog/search/resource/details.page?uuid=%7BBD6FD933-A183-4A4C-8314-AF1FC4613CB7%7D" target="_blank">Oregon Department of Environmental Quality/Oregon Spatial Data Library</a></p2><br>
+                	<p2>Groundwater Source Areas: <a href = "http://spatialdata.oregonexplorer.info/geoportal/catalog/search/resource/details.page?uuid=%7B6A1EC8DD-8B68-4483-8CC5-01C57B6A2C27%7D" target="_blank">Oregon Department of Environmental Quality/Oregon Spatial Data Library</a></p2><br>
+                	<p2>Potential Contaminant Sources: <a href = "https://www.oregon.gov/deq/wq/programs/Pages/DWP-Maps.aspx" target="_blank">Oregon Department of Environmental Quality</a></p2><br>
+                	<p2 style="font-size:20px">Text Data</p2><br>
+                	<p2>Drinking water statistics and information: Oregon DEQ, Oregon Health Authority, Portland Water Bureau</p2>
+                </div>
+                <div class="modal-footer">
+                    <p2>Created with Leaflet</p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+
+//dams          
+
+          
+    function damColor(string){
+        if (string == "1990" | string == "2000") {return '#0f0d00'}
+        else if (string == "1970" | string == "1980"){return '#756c34'}
+        else if (string == "1950" | string == "1960"){return '#b3ab3f'}
+        else if (string == "1930" | string == "1940"){return '#dacea1'}
+        else if (string == "1910" | string == "1920"){return '#949494'}
+        else {return '#c2c2c2'}
+    	}
+    	
+    function damColor1(density){
+        return density >10 ? '#0f0d00' :
+        density >8 ? '#756c34':
+        density >6 ? '#b3ab3f':
+        density >4 ? '#dacea1':
+        density >2 ? '#949494':
+        '#c2c2c2';
+    }
+    
+
+    function damSize(density){
+		return density >500000 ? 12:
+        density >100000 ? 10:
+        density >50000 ? 8:
+        density >1000 ? 5:
+        3;
+    }
+
+	function hydroSize(density){
+        return density >1000 ? 10:
+        density >100 ? 8:
+        density >50 ? 6:
+        density >10 ? 4:
+        2;
+    }
+    
+    function hydroColor(string){
+        if (string == "USACOE" | string == "ACOE" | string == "Corps of Engineers, Portland District" | string == "USBR") {return '#3366ff'}
+        else if (string == "PGE" | string == "EWEB" | string == "Eugene Water & Electric Board" | string == "City of Eugene"){return '#00cc00'}
+        else {return '#ff3333'}
+    	}
+    
+    //basin
+      function setBasinColor(density){
+        return density > 50 ? '#fafafa' :
+        density > 30 ? '#bdbdbd':
+        density > 15 ? '#808080':
+        density > 5 ? '#424242':
+        '#050505';
+    }
+    
+    function basinStyle(feature) {
+        return {
+           fillColor: setBasinColor(feature.properties.NUMPOINTS), 
+           fillOpacity: .8, 
+           color: '#ffffff', 
+           radius: 4, 
+           opacity: .8, 
+           weight: 1
+        };
+    }
+    
+    function highlightBasin(e) {
+    	var layer = e.target;
+    	
+    	layer.setStyle({
+        	fillOpacity: 1,
+        	weight: 2
+    	});
+    	layer.bringToFront();
+    }
+    
+    function resetBasin(e) {
+    	var layer = e.target;
+    	
+    	layer.setStyle({
+           	fillOpacity: 0.8,
+        	weight: 1
+    	});
+    }
+    
+//bridges
+function bridgeColor(string){
+        if (string == "Structurally Deficient" | string == "Functionally Obsolete") {return '#ec1a0f'}
+        else if (string == "Not Deficient"){return '#756c34'}
+        else {return '#25e525'}
+    }
+
+    
+
+//	
+    var legend_sw = '<i style="background: #b3d1ff; fillOpacity: .8; color:#4d94ff; weight: 1; opacity: 0.8; border:1px solid #4d94ff"></i><b><p style="text-align: left; margin-left: 25px">Surface Source Protection Zone</b></p>';
+    var legend_gw = '<i style="background: #0066ff; fillOpacity: .8; color:#b3d1ff; weight: 1; opacity: 0.8; border:1px solid #b3d1ff"></i><b><p style="text-align: left; margin-left: 25px">Groundwater Source Protection Zone</b></p>';
+    var legend_grid = '<p style="text-align: center; font-weight:bold">Contaminants</p><img src="img/total.png" style="height:10px; margin-top:5px; width:10px; margin-left:1px;"><p style="font-weight:bold">Hover for number</p><br><i style="background: #0066ff; fillOpacity: .8; color:#b3d1ff; weight: 1; opacity: 0.8; border:1px solid #b3d1ff"></i><b><p style="text-align: left;  margin-left: 25px">Groundwater Zones</b></p><i style="background: #b3d1ff; fillOpacity: .8; color:#4d94ff; weight: 1; opacity: 0.8; border:1px solid #4d94ff"></i><b><p style="text-align: left;  margin-left: 25px">Surface Water Zones</b></p>';
+	var legend_contaminants = '<p style="text-align: center">Potential Contaminant Sources</p><img src="img/lowest.png" style="height:10px; width:10px; margin-top:8px; margin-left:1px;"><p style = "margin-top:5px;">Lowest-Risk</p><img src="img/medium.png" style="height:10px; width:10px; margin-top:8px; margin-left:1px;"><p style = "margin-top:5px;">Medium-Risk</p><img src="img/highest.png" style="height:10px; width:10px; margin-top:8px; margin-left:1px;"><p style = "margin-top:5px;">Highest-Risk</p><br><p style="text-align:left; font-weight:bold">Hover for source name</p>';
+	var legend_bottle = '<img src="img/bottle.png" style="height:30px; width:12px; margin-top:8px; margin-left:1px;"><p style = "margin-top:16px; margin-left: 20px;">Bottling Facility</p><p style = "margin-top:15px;">Hover for name</p>'
+//<p style="text-align:left; font-weight:bold">Hover for source</p>'
+
+    var layers = {  
+             'basins': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:dam_basin&maxFeatures=1000&outputFormat=application%2Fjson', {
+            	style:basinStyle, onEachFeature: function(feature, featureLayer) {
+        			featureLayer.bindTooltip(feature.properties.HU_8_NAME + " : "+feature.properties.NUMPOINTS+" dams", {className: 'label_tooltip'});
+        			featureLayer.on({
+        					mouseover: highlightBasin,
+        					mouseout: resetBasin
+        				})
+    			}}
+            	)],
+            'dams' : [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:dams_reprojected&maxFeatures=100000&outputFormat=application%2Fjson', {
+            	pointToLayer: function (feature, latlng) {
+    			return L.circleMarker(latlng, {
+    				color: '#ffffff',
+    				fillColor: damColor(feature.properties.Decade),
+    				radius: damSize(feature.properties.storage),
+    				opacity: 1,
+    				fillOpacity: 1,
+    				weight: 0.5
+    				}
+    					).bindTooltip(feature.properties.dam_name + " : " + feature.properties.storage + " Acre-ft" + "<br>" + "Completed: " + feature.properties.date_com_1, {className: 'label_tooltip'});
+    				}
+				}), legend_contaminants],
+			'hydro' : [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:dams_hydropower&maxFeatures=100000&outputFormat=application%2Fjson', {
+            	pointToLayer: function (feature, latlng) {
+    			return L.circleMarker(latlng, {
+    				color: '#ffffff',
+    				fillColor: hydroColor(feature.properties.owner_name),
+    				radius: hydroSize(feature.properties.capacity),
+    				opacity: 1,
+    				weight: 1,
+    				fillOpacity: 1
+    				}
+    					).bindTooltip(feature.properties.dam_name + " : " + feature.properties.capacity + " MW", {className: 'label_tooltip'});
+    				}
+				}), legend_contaminants],
+			'bridges' : [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:water_bridges&maxFeatures=100000&outputFormat=application%2Fjson', {
+            	pointToLayer: function (feature, latlng) {
+    			return L.circleMarker(latlng, {
+    				color: bridgeColor(feature.properties.SD_FO),
+    				fillColor: bridgeColor(feature.properties.SD_FO),
+    				radius: 1,
+    				opacity: 1,
+    				fillOpacity:1
+    				}
+    					).bindTooltip(feature.properties.BRIDGE_NAM, {className: 'label_tooltip'});
+    				}
+				}), legend_contaminants],
+			'basin1': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
+        			layers: 'baldricg_atlas:dam_basin',
+        			format: 'image/png',
+        			minZoom: 6,
+        			maxZoom: 15,
+        			transparent: true,
+    			}), legend_gw],
+    		'rivers': [L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_basemap/wms", {
+        			layers: 'baldricg_basemap:rivers_oregon',
+        			format: 'image/png',
+        			minZoom: 6,
+        			maxZoom: 15,
+        			transparent: true,
+    			}), legend_gw]
+			
+			
+    };
+
+    var scenes = {
+            overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position:'fullpage'},
+            dams: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['dams','basin1']},
+            hydro: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['hydro', 'rivers']},
+            bridges: {lat: 44.1347254, lng:-122.7411479, zoom: 7, layers:['bridges', 'rivers']},
+            end: {lat: 44.1347254, lng:-122.7411479, zoom: 7, position:'fullpage'}
+    };
+    
+
+    $('.main').storymap({
+        scenes: scenes,
+        layers:layers,
+        legend: false,
+        scale:false,
+        navbar: true,
+        createMap: function () {
+            // create a map in the "map" div, set the view to a given place and zoom
+                var map = L.map('map',{zoomControl:false,  scrollWheelZoom:false}).setView([44.1347254, -122.7411479], 7);
+            // add an basemap, which can be either OSM, mapbox, tilelayer, wmslayer or those designed by yourself.
+           		/*L.tileLayer.wms("http://localhost:8080/geoserver/basemap/wms", {
+        			layers: 'basemap:basemap_dark',
+       				format: 'image/png',
+       				minZoom: 6,
+        			maxZoom: 15,
+        			transparent: true,
+        		attribution: "Created by Gareth Baldrica-Franklin"
+    			}).addTo(map);
+    			
+    			L.tileLayer.wms("http://localhost:8080/geoserver/basemap/wms", {
+        			layers: 'basemap:basemap_dark_labels',
+        			format: 'image/png',
+        			minZoom: 6,
+        			maxZoom: 15,
+        			transparent: true,
+        			tiled: true, 
+        			tilesorigin: [-180, 90]
+    			}).addTo(map);
+    			*/
+    			
+    			var CartoDB_DarkMatterNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+					subdomains: 'abcd',
+					maxZoom: 15,
+					minZoom: 6
+				}).addTo(map);
+ 				
+ 				var mini = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+					subdomains: 'abcd',
+					maxZoom: 8,
+					minZoom: 5
+				});
+			    var currentZoom = 0;
+
+
+				var miniMap = new L.Control.MiniMap(mini, { toggleDisplay: false});
+ 				
+				miniMap.addTo(map);
+			
+				new L.Control.Zoom({ position: 'bottomright'}).addTo(map);
+				
+
+				/*if (scene == 'portland'){
+				miniMap;
+				}*/
+
+            return map;
+        }
+
+    });
+    
+    document.getElementsByClassName("leaflet-control-attribution")[0].style.visibility = "hidden";
+
+    
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+   		event.preventDefault();
+    $(this).ekkoLightbox();
+	});
+
+</script>
+</body>
+</html>
