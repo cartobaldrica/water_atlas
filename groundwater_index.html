@@ -38,7 +38,7 @@
         <div class="col-sm-6 col-md-4 main">
         
              <section data-scene="overview">
-				 	<div class= "overview-background-img background-fullscreen-setting text-responsive text-shadow: black 0.2em 0.2em 0.3em;"><h4 class="text-center" style="color: white">Groundwater</h4><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 20%; margin-right:20%; text-align: justify;">Groundwater is the most difficult aspect of Oregon's water to measure. It primarily exists in the spaces between soil and rock particles underground. Groundwater is particularly important in Eastern and Central Oregon, where surface water supplies are limited. </h4>
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive text-shadow: black 0.2em 0.2em 0.3em;"><h4 class="text-center" style="color: white">Groundwater</h4><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 25%; margin-right:25%; text-align: justify;">Groundwater is the most difficult aspect of Oregon's water to measure. It primarily exists in the spaces between soil and rock particles underground. Groundwater is particularly important in Eastern and Central Oregon, where surface water supplies are limited. </h4>
                 	<br/><br/>
                 	<p class ="text-center" style="font-size:14px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 30%; margin-right:30%; ">Created by Gareth Baldrica-Franklin, Institute for Water and Watersheds, Oregon State University</p></div>
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>            
@@ -114,14 +114,13 @@
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
     </div>
     
-    <i class="fa fa-info-circle social" style="left:94%;" data-toggle="modal" data-target="#info-modal"></i>
+        <i class="fa fa-info-circle social" style="right:70px;" data-toggle="modal" data-target="#info-modal"></i>
     
-	<a class="fa fa-facebook-square social2" style="left:95.2%;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/groundwater_index.html" target="_blank"></a>
+	<a class="fa fa-facebook-square social2" style="right:55px;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" target="_blank"></a>
         
-    <a class="fa fa-twitter-square social3" style="left:96.4%;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/groundwater_index.html" target="_blank"></a>
+    <a class="fa fa-twitter-square social3" style="right:40px;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" target="_blank"></a>
 	
-	<a class="fa fa-github-square social3" style="left:97.6%;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
-
+	<a class="fa fa-github-square social3" style="right:25px;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
     <!--<div class="chapter-control"><p>Topics</p></div>-->
     
     <ul class="navbar text-center"></ul>
@@ -406,24 +405,15 @@ function otherStyle(feature) {
     				}}
             	), legend_recharge],
             'sand_dissolved': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_dissolved&maxFeatures=50&outputFormat=application%2Fjson',
-            	{style:sandStyle, onEachFeature: function(feature, featureLayer) {
-        				featureLayer.bindTooltip(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: true});
-    					featureLayer.bindPopup(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: false});
-        				
+            	{style:sandStyle, onEachFeature: function(feature, featureLayer) {        				
     				}}
             	), legend_recharge],
             'volcanic_dissolved': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_dissolved&maxFeatures=50&outputFormat=application%2Fjson',
-            	{style:volStyle, onEachFeature: function(feature, featureLayer) {
-        				featureLayer.bindTooltip(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: true});
-    					featureLayer.bindPopup(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: false});
-        				
+            	{style:volStyle, onEachFeature: function(feature, featureLayer) {		
     				}}
             	), legend_recharge],
             'other_dissolved': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_dissolved&maxFeatures=50&outputFormat=application%2Fjson',
-            	{style:otherStyle, onEachFeature: function(feature, featureLayer) {
-        				featureLayer.bindTooltip(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: true});
-    					featureLayer.bindPopup(feature.properties.rock_type + "<br>" + "Avg. Recharge Rate: " + feature.properties.rate + " mm/yr", {className: 'label_tooltip', sticky: false});
-        				
+            	{style:otherStyle, onEachFeature: function(feature, featureLayer) {        				
     				}}
             	), legend_recharge],
         	'conservation_management': [L.geoJson.ajax('http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=baldricg_atlas:groundwater_conservation&maxFeatures=500&outputFormat=application%2Fjson',
@@ -474,9 +464,9 @@ function otherStyle(feature) {
     var scenes = {
             overview: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Home', position:'fullpage'},
             recharge: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Aquifers', layers:['elevation','groundwater_dissolved']},
-            recharge2: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Sand/Gravel', layers:['elevation','sand_dissolved']},
-            recharge3: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Volcanic', layers:['elevation','volcanic_dissolved']},
-            recharge4: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Other', layers:['elevation','other_dissolved']},
+            recharge2: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Sand/Gravel', layers:['sand_dissolved']},
+            recharge3: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Volcanic', layers:['volcanic_dissolved']},
+            recharge4: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Other', layers:['other_dissolved']},
             conservation_critical: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Conservation', layers:['conservation_critical']},
             conservation_management: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'Management', layers:['conservation_management']},
             county_use: {lat: 44.1347254, lng:-122.7411479, zoom: 7, name:'County Use', layers:['counties']},
