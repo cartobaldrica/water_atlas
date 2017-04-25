@@ -297,8 +297,7 @@ h3{
 	font-size: 50px;
 	font-weight:bold;
 	margin-top: 5px;
-		text-shadow: black 0.2em 0.2em 0.3em;
-
+	text-shadow: black 0.1em 0.1em 0.2em;
 	}
 div.leg {
     line-height: 16px;
@@ -342,7 +341,6 @@ div.leg p {
     z-index:1003;
 	font-family: "Inconsolata", sans-serif;
     top: 2%;
-    left:7px;
 }
 .social:hover {
     color: gray;

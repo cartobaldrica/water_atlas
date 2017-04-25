@@ -47,20 +47,23 @@
 
 .navbar {
     position: fixed;
-    top: 20%;
-    left: 86%;
+    top: 5%;
+    left: 92%;
     z-index: 1002;
     border-radius: 3px;
-    background: rgba(179, 179, 179, 0.7);
+    background: rgba(255, 255, 255, .8);
     color: rgba(63, 63, 63, 0.3);
     padding:0;
     margin:0;
     font-size: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    opacity: 1;
-    filter:alpha(opacity=1);
-    -moz-opacity:1;
+    opacity: 0;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
 }
+.navbar:hover{
+	opacity:1;
+	}
 
 .navbar > li {
     position: relative;
@@ -70,15 +73,17 @@
 }
 
 .navbar li a {
-    outline: 2px;
+    outline: 1px;
     border: 0;
-    padding: 8px;
-    padding-bottom: 0;
+    padding: 4px;
     background-color: transparent;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.navbar li a:visited,.navbar li a:active, .navbar li a:link  {color: rgba(255, 255, 255, 0.9); text-decoration:none}
-.navbar li a:hover   {color: rgba(0, 0, 0, 0.5); text-decoration:none; font-size:12px}
+
+.navbar li a:visited,.navbar li a:active, .navbar li a:link  {color: rgba(0, 0, 0, 1); text-decoration:none}
+.navbar li a:hover   {color: rgba(0, 0, 0, .5); background-color:black); text-decoration:none;}
 
 h4{
 	font-family: "Inconsolata", sans-serif;
@@ -115,6 +120,7 @@ h4{
 .end-background-img {
     background: url(end.jpg) no-repeat center center fixed;
 }
+
 
 
 .background-fullscreen-setting {
@@ -272,7 +278,7 @@ h1{
 }
 p{
 	font-family: "Inconsolata", sans-serif;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight:bold;
 	display: inline;
 }
@@ -294,11 +300,44 @@ font-family: 'La Belle Aurore', cursive;
 	font-size: 20px;
 	color: #bf4040;
 }
+div.leg {
+    line-height: 16px;
+    color: #333333;
+	font-family: "Verdana", Geneva, sans-serif;
+    /*background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;*/
+}
+
+div.leg i {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.9;
+    z-index: 1000;
+}
+
+div.leg img {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    float: left;
+}
+
+div.leg p {
+    font-size: 12px;
+    color: black;
+    line-height: 16px;
+    margin: 0;
+    text-shadow: black 0.0em 0.0em 0.0em;
+}
+
 .img:hover{
 	border:4px solid #ffffff;	
 	}
 
-.social,.social2 {
+.social,.social2,.social3 {
     position:fixed;
     cursor: pointer;
     font-size:24px;
@@ -306,14 +345,17 @@ font-family: 'La Belle Aurore', cursive;
     z-index:1003;
 	font-family: "Verdana", Geneva, sans-serif;
     top: 2%;
-    left:7px;
 }
 .social:hover {
     color: gray;
     text-decoration: none;
 }
 .social2:hover {
-    color: blue;
+    color: "#3b5998";
+    text-decoration: none;
+}
+.social3:hover {
+    color: "#0084b4";
     text-decoration: none;
 }
 .label_tooltip {
