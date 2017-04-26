@@ -60,7 +60,7 @@
 			</section>  
 			
 			 <section data-scene="basins">
-                <h3>Dams Density</h3>
+                <h3>Dam Density</h3>
 				<p>Dams fundamentally change the environment of their surrounding watersheds. They reduce flow, alter the habitats of freshwater organisms, and affect the amount of sediment that is transported by the river. At the same time, the presence of dams can reduce flood severity. The basins outlined in this map represent the watersheds of many of the largest rivers in Oregon.</p>
 				<div class="leg"><p style ="font-weight: bold;"># of Dams</p></br><i style="background: #333333; opacity: 0.8"></i><p>51+</p></br><i style="background: #666666; opacity: 0.8"></i><p>31 - 50</p></br><i style="background: #a6a6a6; opacity: 0.8"></i><p>16 - 30</p></br><i style="background: #cccccc; opacity: 0.8"></i><p>6 - 15</p></br><i style="background: #f2f2f2; opacity: 0.8"></i><p>< 5</p></div>
 			</section>    
@@ -459,7 +459,9 @@ function bridgeColor(string){
 				*/
 				
 				var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-					attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+					attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+					minZoom: 6,
+        			maxZoom: 15
 					}).addTo(map);
 					
 				Esri_WorldImagery.setOpacity(0.3);
@@ -473,11 +475,22 @@ function bridgeColor(string){
     			}).addTo(map);
     			
     			oregonWater.setOpacity(0.5);
+    			
+    			var oregonCover = L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
+        			layers: 'baldricg_atlas:oregon_cover',
+        			format: 'image/png',
+        			minZoom: 6,
+        			maxZoom: 15,
+        			transparent: true,
+    			}).addTo(map);
+    			
+    			oregonCover.setOpacity(0.4);
 				
 				var CartoDB_PositronOnlyLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 					subdomains: 'abcd',
-					maxZoom: 19
+					minZoom: 6,
+        			maxZoom: 15,
 					}).addTo(map);
 					
 				CartoDB_PositronOnlyLabels.setOpacity(0.6);

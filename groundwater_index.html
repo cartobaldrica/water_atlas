@@ -113,15 +113,14 @@
         </div>
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
     </div>
+     <i class="fa fa-info-circle social" style="right:70px;" data-toggle="modal" data-target="#info-modal"></i>
     
-        <i class="fa fa-info-circle social" style="right:70px;" data-toggle="modal" data-target="#info-modal"></i>
-    
-	<a class="fa fa-facebook-square social2" style="right:55px;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" target="_blank"></a>
+	<a class="fa fa-facebook-square social2" style="right:55px;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
         
-    <a class="fa fa-twitter-square social3" style="right:40px;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" target="_blank"></a>
+    <a class="fa fa-twitter-square social3" style="right:40px;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
 	
 	<a class="fa fa-github-square social3" style="right:25px;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
-    <!--<div class="chapter-control"><p>Topics</p></div>-->
+	
     
     <ul class="navbar text-center"></ul>
 
@@ -510,8 +509,18 @@ function otherStyle(feature) {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 					subdomains: 'abcd',
 					maxZoom: 15,
-					minZoom: 6
+					minZoom: 6,
 				}).addTo(map);
+				
+				oregonCover = L.tileLayer.wms("http://mapious.ceoas.oregonstate.edu/geoserver/baldricg_atlas/wms", {
+        			layers: 'baldricg_atlas:oregon_cover_white',
+        			format: 'image/png',
+        			minZoom: 6,
+        			maxZoom: 15,
+        			transparent: true,
+    			}).addTo(map);
+    			
+    			oregonCover.setOpacity(0.1);
  				
  				var mini = new L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
