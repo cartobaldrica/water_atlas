@@ -287,13 +287,12 @@ div.leg {
 }
 
 div.leg i {
-    width: 16px;
-    height: 16px;
-    margin:0;
+    width: 35px;
+    height: 25px;
+    margin:0px;
     float: left;
     margin-right: 8px;
     opacity: 0.9;
-    z-index: 1000;
 }
 
 div.leg i2 {
@@ -311,11 +310,11 @@ div.leg img {
 }
 
 div.leg p {
-    font-size: 12px;
+    font-size: 16px;
     color: white;
-    line-height: 16px;
+    line-height: 25px;
     margin: 0;
-    text-shadow: gray 0.2em 0.2em 0.3em;
+    text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 .leaflet-container {
@@ -333,9 +332,8 @@ h1{
 p{
 	font-family: "Inconsolata", sans-serif;
 	font-size: 20px;
-	font-weight:bold;
 	display: inline;
-	text-shadow: gray 0.1em 0.1em 0.1em;
+	text-shadow: black 0.1em 0.1em 0.2em;
 	color:white;
 }
 p2{
@@ -349,7 +347,7 @@ h3{
 	font-family: "Inconsolata", sans-serif;
 	font-size: 50px;
 	font-weight:bold;
-	text-shadow: gray 0.1em 0.1em 0.2em;
+	text-shadow: black 0.1em 0.1em 0.2em;
 	color:white;
 	}
 h5{

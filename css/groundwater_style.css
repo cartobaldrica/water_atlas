@@ -264,7 +264,7 @@ h4{
 
 .breakpoint-current {
     left: 0;
-    margin-top: -10px;
+    margin-top: -150px;
     position: fixed;
    /* top: 33.3333%; */
     width: 1px;
@@ -274,7 +274,7 @@ h4{
 }
 
 section {
-    padding: 5px 10px 50px 10px;
+    padding: 5px 10px 10px 10px;
     border-radius: 0px;
     opacity:0;
 }
@@ -324,7 +324,6 @@ h3{
 	font-family: "Inconsolata", sans-serif;
 	font-size: 50px;
 	font-weight:bold;
-	margin-top: 5px;
 text-shadow: black 0.1em 0.1em 0.2em;
 	}
 	
@@ -338,13 +337,21 @@ div.leg {
 }
 
 div.leg i {
-    width: 16px;
-    height: 16px;
+    width: 35px;
+    height: 25px;
     float: left;
     margin-right: 8px;
     opacity: 0.9;
     z-index: 1000;
 }
+
+div.leg i2 {
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+		border:0.2px solid #ffffff;    
+}
+
 
 div.leg img {
     width: 16px;
@@ -354,11 +361,11 @@ div.leg img {
 }
 
 div.leg p {
-    font-size: 12px;
+    font-size: 16px;
     color: white;
-    line-height: 16px;
+    line-height: 25px;
     margin: 0;
-    text-shadow: black 0.0em 0.0em 0.0em;
+    text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 

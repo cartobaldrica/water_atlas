@@ -45,22 +45,56 @@
     left: 50%;
     font-size: 40px;
 }
-
+@media (min-width: 2301px){
 .navbar {
     position: fixed;
-    top: 90px;
-    right: 10px;
+  	top: 75%;
+  	left: 50%;
+  	margin-left: -410px;
     z-index: 1002;
     border-radius: 3px;
-    background: rgba(38, 38, 38, .8);
     color: rgba(63, 63, 63, 0.3);
-    padding:0;
-    margin:0;
     font-size: 10px;
-    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    box-shadow: 0 0 0px rgba(255,255,255,0.2);
     opacity: 1;
     filter:alpha(opacity=0);
     -moz-opacity:0;
+	}
+}
+
+@media (min-width: 1501px) and (max-width: 2300px){
+.navbar {
+    position: fixed;
+  	top: 85%;
+  	left: 50%;
+  	margin-left: -320px;
+    z-index: 1002;
+    border-radius: 3px;
+    color: rgba(63, 63, 63, 0.3);
+    font-size: 10px;
+    box-shadow: 0 0 0px rgba(255,255,255,0.2);
+    opacity: 1;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width:1500px){
+.navbar {
+    position: fixed;
+  	top: 90%;
+  	left: 50%;
+  	margin-left: -310px;
+    z-index: 1002;
+    border-radius: 3px;
+    color: rgba(63, 63, 63, 0.3);
+    font-size: 10px;
+    box-shadow: 0 0 0px rgba(255,255,255,0.2);
+    opacity: 1;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+}
 }
 
 div.chapter-control:hover ~ .navbar{
@@ -68,58 +102,24 @@ div.chapter-control:hover ~ .navbar{
 }
 .navbar > li {
     position: relative;
-    display: block !important;
+    display: inline !important;
     cursor: pointer;
     text-align: left;
 }
 
 .navbar li a {
-    outline: 1px;
-    border: 0;
-    padding-right:10px;
-    padding: 4px;
-    background-color: transparent;
+    border: 1;
+    background-color: rgba(38, 38, 38, 0.8);
     font-size:14px;
+    padding:5px;
     color:rgba(0, 68, 255, 1);
-    border-color:white;
+    border-color:black;
     text-shadow: black 0.2em 0.2em 0.3em;
 }
-
-.navbar btn btn-default{
-	background:black;
-	}
-
-a.button:hover{
-	background:black;
-	}
-
 
 .navbar li a:visited,.navbar li a:active, .navbar li a:link  {color: rgba(255, 255, 255, 1); text-decoration:none}
 .navbar li a:hover   {color: rgba(255, 255, 255, .5); background:black); text-decoration:none;}
 
-div.chapter-control{
-	position: fixed;
-    top: 4.5%;
-    left: 93.6%;
-    z-index: 2002;
-    opacity:1;
-    background-color: rgba(255,255,255,0.9);
-    border-radius: 5px;
-    padding:4px;
-	margin:3px;
-}
-
-div.chapter-control:hover{
-	opacity:0
-	padding-bottom: 1000px;
-}
-
-div.chapter-control p{
-	font-size:14px;
-	text-shadow: black 0em 0em 0em;
-	color:black;
-	margin:0px;
-}
 
 h4{
 	font-family: "Inconsolata", sans-serif;
@@ -185,7 +185,7 @@ h4{
         padding-right: 40px;
         padding-left: 20px;
         z-index: 1001;
-        width: 500px;
+        width: 550px;
     }
 
 }
@@ -334,7 +334,6 @@ h3{
 	font-weight:bold;
 	margin-top: 5px;
 	text-shadow: black 0.1em 0.1em 0.2em;
-	margin-top:50px;
  	
 	}
 	
@@ -348,8 +347,8 @@ div.leg {
 }
 
 div.leg i {
-    width: 35px;
-    height: 25px;
+    width: 80px;
+    height: 30px;
     float: left;
     opacity: 1;
     z-index: 1000;
@@ -364,9 +363,9 @@ div.leg img {
 }
 
 div.leg p {
-    font-size: 14px;
+    font-size: 16px;
     color: white;
-    line-height: 25px;
+    line-height: 30px;
     margin: 0;
     text-shadow: black 0.0em 0.0em 0.0em;
     text-shadow: black 0.2em 0.2em 0.3em;
