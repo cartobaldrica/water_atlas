@@ -42,7 +42,7 @@
         <div class="col-sm-6 col-md-4 main">
 
             <section data-scene="overview">
-				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center" style="color:white;">Precipitation</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 25%; margin-right:25%; text-align:justify">Oregon is known for having lots of rain. The reality is far more complicated. While some areas in the Oregon Coast Range are among the rainiest in the U.S, much of Eastern Oregon is extremely dry. Everywhere else is somewhere in between.</h4>
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center" style="color:white;">Precipitation</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 25%; margin-right:25%; text-align:justify">Oregon is known for having lots of rain. The reality is far more complicated. While some areas in the Oregon Coast Range are among the rainiest in the U.S, much of Eastern Oregon is extremely dry.</h4>
                 	<br/><br/>
                 	<p class ="text-center" style="font-size:14px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 30%; margin-right:30%; display:block">Created by Gareth Baldrica-Franklin, Institute for Water and Watersheds, Oregon State University</p></div>	
                 	<i class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></i>
@@ -51,7 +51,7 @@
             
              <section data-scene="annual">
                 <h3>Annual</h3>
-                <p style="font-size: 14px; padding-right:150px; text-align:justify;">The Cascade Mountains are the cause of the stark contrast between Eastern and Western Oregon. They form a "rain shadow," effectively shielding the interior parts of the state from precipitation.</p>
+                <p style="padding-right:150px; text-align:justify;">The Cascade Mountains are the cause of the stark contrast between Eastern and Western Oregon. They form a "rain shadow," effectively shielding the interior parts of the state from precipitation.</p>
                 <div class="leg"><p style="line-height: 16px;">Avg. Rainfall <br/> in Inches</p><br/><i style="background: #dbd1cb;"></i><p>&nbsp< 10</p><i style="background: #d4cac6;"></i><p>&nbsp10 - 20</p><i style="background: #a1a7dd;"></i><p>&nbsp20 - 30</p><i style="background: #6986f1;"></i><p>&nbsp30 - 40</p><i style="background: #006bff;"></i><p>&nbsp40 - 60</p><i style="background: #0056de;"></i><p>&nbsp60 - 80</p><i style="background: #0044b8;"></i><p>&nbsp80 - 100</p><i style="background: #003293;"></i><p>&nbsp100 - 140</p><i style="background: #002375;"></i><p>&nbsp> 140</p></div>
 				<ul class="navbar text-center"></ul>
 			</section>  
@@ -139,14 +139,14 @@
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
     </div>
     
-         <i class="fa fa-info-circle social" style="right:70px;" data-toggle="modal" data-target="#info-modal"></i>
+       <i class="fa fa-info-circle social" style="right:70px;" data-toggle="modal" data-target="#info-modal"></i>
     
-	<a class="fa fa-facebook-square social2" style="right:55px;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" target="_blank"></a>
+	<a class="fa fa-facebook-square social2" style="right:55px;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
         
-    <a class="fa fa-twitter-square social3" style="right:40px;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" target="_blank"></a>
+    <a class="fa fa-twitter-square social3" style="right:40px;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
 	
 	<a class="fa fa-github-square social3" style="right:25px;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
-    
+	
     <div class="modal fade" id="info-modal" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -308,21 +308,21 @@
     };
 
     var scenes = {
-            overview: {lat: 44.1347254, lng:-120.98479, zoom: 7,name:'HOME', position: 'fullpage'},
-            annual: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'ANNUAL', layers:['annual','counties']},
-            january: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'JANUARY', layers:['january','counties']},
-        	february: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'FEBRUARY', layers:['february','counties']},
-        	march: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'MARCH', layers:['march','counties']},
-        	april: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'APRIL', layers:['april','counties']},
-        	may: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'MAY', layers:['may','counties']},
-        	june: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'JUNE', layers:['june','counties']},
-        	july: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'JULY', layers:['july','counties']},
-        	august: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'AUGUST', layers:['august','counties']},
-			september: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'SEPTEMBER', layers:['september','counties']},
-			october: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'OCTOBER', layers:['october','counties']},
-			november: {lat: 44.1347254, lng:-120.982479, zoom: 7, name:'NOVEMBER', layers:['november','counties']},
-			december: {lat: 44.1347254, lng:-120.982479, zoom: 7, name:'DECEMBER', layers:['december','counties']},
-			end: {lat: 44.1347254, lng:-120.98479, zoom: 7, name:'END', position:'fullpage'}
+            overview: {lat: 43.9347254, lng:-121.68479, zoom: 7,name:'HOME', position: 'fullpage'},
+            annual: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'ANNUAL', layers:['annual','counties']},
+            january: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'JANUARY', layers:['january','counties']},
+        	february: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'FEBRUARY', layers:['february','counties']},
+        	march: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'MARCH', layers:['march','counties']},
+        	april: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'APRIL', layers:['april','counties']},
+        	may: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'MAY', layers:['may','counties']},
+        	june: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'JUNE', layers:['june','counties']},
+        	july: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'JULY', layers:['july','counties']},
+        	august: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'AUGUST', layers:['august','counties']},
+			september: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'SEPTEMBER', layers:['september','counties']},
+			october: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'OCTOBER', layers:['october','counties']},
+			november: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'NOVEMBER', layers:['november','counties']},
+			december: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'DECEMBER', layers:['december','counties']},
+			end: {lat: 43.9347254, lng:-121.68479, zoom: 7, name:'END', position:'fullpage'}
 
 
     };
