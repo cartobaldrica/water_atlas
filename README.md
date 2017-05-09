@@ -7,5 +7,5 @@ Surface Water: http://rawgit.com/cartobaldrica/water_atlas/master/surface_index.
 Fish: http://rawgit.com/cartobaldrica/water_atlas/master/fish_index.html <br>
 Water Use: http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html <br>
 Infrastructure: http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html <br>
-Precipitation: http://rawgit.com/cartobaldrica/water_atlas/master/precip_index.html <br>
+Precipitation: http://rawgit.com/cartobaldrica/water_atlas/master/precipitation.html <br>
 
