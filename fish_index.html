@@ -8,7 +8,7 @@
     <meta property="og:title" content="Oregon Drinking Water" />
     <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" />
     <meta property="og:description" content="Explore Oregon's drinking water." />
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="css/fish_style.css">
@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="css/ekko-lightbox.css"/>        
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata" />
-
+  
 	<link rel="shortcut icon" href="img/oregon.ico" type="image/x-icon">
 	
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
@@ -32,15 +32,65 @@
 	
 </head>
 <body>
-
+<!--<div class="navbar navbar-inverse navbar-fixed-top navbar-toggleable-md" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fish</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=barriers]').offset().top - $(window).scrollTop() - 40);">Barriers</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=steelhead]').offset().top - $(window).scrollTop() - 40);">Steelhead</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=redband]').offset().top - $(window).scrollTop() - 40);">Redband</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=bulltrout]').offset().top - $(window).scrollTop() - 40);">Bulltrout</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=chinook]').offset().top - $(window).scrollTop() - 40);">Chinook</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=coho]').offset().top - $(window).scrollTop() - 40);">Coho</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=chum]').offset().top - $(window).scrollTop() - 40);">Chum</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=sockeye]').offset().top - $(window).scrollTop() - 40);">Sockeye</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=lamprey]').offset().top - $(window).scrollTop() - 40);">Lamprey</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=sturgeon]').offset().top - $(window).scrollTop() - 40);">Sturgeon</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=hatcheries]').offset().top - $(window).scrollTop() - 40);">Hatcheries</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=end]').offset().top - $(window).scrollTop() - 40);">End</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+     /.container 
+</div>-->
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 col-md-4 main">
         
             <section data-scene="overview">
-				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center" style="color:white;">Fish</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #ffffff; text-shadow: black 0.1em 0.1em 0.2em; margin-left: 25%; margin-right:25%; text-align:justify;">Most Oregon waters are home to multiple species of fish. Fish play a major role for regional indigenous groups, and are a proud food source. Urbanization and river engineering have dramatically altered fish habitats and migration paths, changing the dynamics of Oregon fish populations. The fish included in this chapter aren't comprehensive. Rather, they are the fish whose habitats have been surveyed by the Oregon Department of Fish and Wildlife.</h4>
+				 	<div class= "overview-background-img background-fullscreen-setting text-responsive"><h4 class="text-center" style="color:black;">Fish</h4><br><h4 class ="text-center" style="font-size:20px; margin-top:0px; color: #000000; text-shadow: gray 0.0em 0.0em 0.0em; margin-left: 25%; margin-right:25%; text-align:justify;">Most Oregon waters are home to multiple species of fish. Fish play a major role for regional indigenous groups, and are a proud food source. Urbanization and river engineering have dramatically altered fish habitats and migration paths, changing the dynamics of Oregon fish populations. The fish included in this chapter aren't comprehensive. Rather, they are the fish whose habitats have been surveyed by the Oregon Department of Fish and Wildlife.</h4>
                 	<br/><br/>
-                	<p class ="text-center" style="font-size:14px; margin-top:0px; color: #ffffff; text-shadow: black 0.2em 0.2em 0.3em; margin-left: 30%; margin-right:30%; display:block;">Created by Gareth Baldrica-Franklin, Institute for Water and Watersheds, Oregon State University</p></div>
+                	<p class ="text-center" style="font-size:14px; margin-top:0px; color: #000000; text-shadow: black 0em 0em 0em; margin-left: 30%; margin-right:30%; display:block;">Created by Gareth Baldrica-Franklin, Institute for Water and Watersheds, Oregon State University</p></div>
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>                 
             </section>    
             
@@ -60,8 +110,8 @@
 				<br/><br/>
 				<p style="font-size:14px; font-weight:bold;">Saltwater</p><p style="font-size:14px; font-weight:bold; display:inline; margin-left:120px;">Freshwater</p>
 				<br/>
-				<img src="img/steelhead_salt.jpg" width="180" height="68" style="display:inline;">
-				<img src="img/steelhead_fresh.jpg" width="180" height="68" style="display:inline;">
+				<img src="img/steelhead_salt.jpg" width="170" height="64" style="display:inline;">
+				<img src="img/steelhead_fresh.jpg" width="170" height="64" style="display:inline;">
 				<br/><br/>
 				<div class="leg">
 				<p style ="font-weight: bold; line-height:20px;">Season</p><br/>
@@ -98,8 +148,8 @@
 				<br/><br/> 
 				<p style="font-size:14px; font-weight:bold;">Saltwater</p><p style="font-size:14px; font-weight:bold; display:inline; margin-left:120px;">Spawning</p>
 				<br/>
-				<img src="img/chinook_salt.jpg" width="180" height="65" style="display:inline;">
-				<img src="img/chinook_fresh.jpg" width="180" height="65" style="display:inline;">
+				<img src="img/chinook_salt.jpg" width="170" height="60" style="display:inline;">
+				<img src="img/chinook_fresh.jpg" width="170" height="60" style="display:inline;">
 				<br/>
 				<div class="leg">
 				<p style ="font-weight: bold; line-height:20px;">Season</p><br/>
@@ -159,7 +209,7 @@
                 <h3>Lamprey</h3>
 				<p>Lampreys are long eel-like fish. They typically spend 3-7 years in freshwater before migrating to the ocean, where they remain for several years. Lamprey return to freshwater to spawn and die. Lamprey are an important food food for indigenous groups throughout the Northwest. The construction of the Columbia River Hydroelectric System severely limited their distribution throughout Oregon waters.</p>
 				<br/><br/><div class="leg"><p style ="font-weight: bold;">Habitat Extent</p>
-				<img src="img/lamprey.jpg" height="115" width="225" style="float: right;"><br/><i style="background: #00b093; opacity: 0.8; margin-right: 8px;"></i><p>Current</p><br/><i style="background: #ff3333; opacity: 0.8; margin-right: 8px;"></i><p>Historical</p><br/>
+				<img src="img/lamprey.jpg" height="105" width="215" style="float: right;"><br/><i style="background: #00b093; opacity: 0.8; margin-right: 8px;"></i><p>Current</p><br/><i style="background: #ff3333; opacity: 0.8; margin-right: 8px;"></i><p>Historical</p><br/>
 				</div>
 				<br/><br/><br/>
 			</section>
@@ -188,7 +238,7 @@
 				<img src="img/salmon_eggs.jpg" height="200" width="225" style="margin-left:50px;">
 				<br/><br/><br/>
 			</section>
-        	
+
         	 <section data-scene="end">
 				 	<div class= "end-background-img background-fullscreen-setting text-responsive"><br>
                 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>     
@@ -208,7 +258,7 @@
 	
 	<a class="fa fa-github-square social3" style="right:25px;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
 	
-    <ul class="navbar text-center"></ul>
+   <ul class="navbar text-center"></ul>
 
     
     <div class="modal fade" id="info-modal" role="dialog">
